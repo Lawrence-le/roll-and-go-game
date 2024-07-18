@@ -1,3 +1,7 @@
+## Timeline
+
+Duration: 1 Week
+
 ## User Stories
 
 ### (MVP Release)
@@ -22,7 +26,7 @@
 - As a user, I could have a mystery item that provides boost to my character.
 - As a user, I could have a mystery item that gives a disadvantage to my opponent.
 
-## Game Flowchart
+## Game Architecture
 
 ### Landing Page:
 
@@ -42,7 +46,7 @@
 <br>
 
 ```mermaid
-flowchart LR
+flowchart TB
     B[1. Landing Page] --> C[2. Enter Player Names]
     C --> D[3. Submit Names]
     D --> E{4. Decision: Are Both Names Entered?}
@@ -61,6 +65,10 @@ flowchart LR
 ### Game Page:
 
 1. XXXX
+
+### Wireframe:
+
+IMG
 
 ## Code Architecture
 
