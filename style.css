@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin-right: 2%;
+  margin-left: 2%;
+}
+#gameTitle {
+  /* background-color: orange; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3%;
+}
+#landingPageContainer {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+#playerNameContainer {
+  /* background-color: pink; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+}
+.input-container input {
+  display: block;
+  width: 100%;
+  font-size: 1.5rem;
+  border: none;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Color */
+}
+
+.button {
+  font-size: 1.5rem;
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Color */
+  transition: background-color 0.3s ease;
+}
+#startGame {
+  font-size: 3em;
+  background-color: #4caf50;
+  padding: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20rem;
+  height: 100%;
+  border: none;
+}
+#startGame:hover {
+  background-color: #8045a0;
+}
+.button:hover {
+  background-color: #8045a0;
+  transition: transform 0.5s ease;
+}
+.greeting {
+  font-size: 1.5em;
+  color: rgb(50, 50, 50);
+  margin-bottom: 40px;
+}
+.button:active {
+  box-shadow: box-shadow: 
+  7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
+  transform: translateY(20px); 
+} 

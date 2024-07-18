@@ -31,36 +31,24 @@ Duration: 1 Week
 ### Landing Page:
 
 1. Landing Page: The system displays the landing page.
-2. Enter Player Names: User enters Player 1 and Player 2 names in the input fields and clicks the submit button.
-3. Submit Names: The system checks if both names are entered.
-4. Decision Point: Are both names entered?
-   - Yes: Proceed to marker selection.
-   - No: Prompt user to enter both names.
-5. Player 1 Chooses Marker: Player 1 selects their marker color and confirms.
-6. Player 2 Chooses Marker: Player 2 selects their marker color and confirms.
-7. Display Start Game Button: The system displays the start game button.
-8. Start Game: User clicks the start game button.
-9. Game Page: The system navigates to the game page.
-
-<br>
-<br>
+2. Enter Player 1 Name: User enters Player 1 name in the input fields
+3. Submit Name Button: Player 1 click submit name button
+4. Enter Player 2 Name: User enters Player 2 name in the input fields
+5. Submit Name Button: Player 2 click submit name button
+6. Start Game Button: Start game button appears after the 2nd player clicked submit button
+7. Go to Game Page
 
 ```mermaid
 flowchart TB
-    B[1. Landing Page] --> C[2. Enter Player Names]
-    C --> D[3. Submit Names]
-    D --> E{4. Decision: Are Both Names Entered?}
-    E -->|No| F[Prompt User]
-    F --> G[Enter Names]
-    G --> D
-    E -->|Yes| H[5. Player 1 Chooses Marker]
-    H --> I[Player 1 Confirms]
-    I --> J[6. Player 2 Chooses Marker]
-    J --> K[Player 2 Confirms]
-    K --> L[7. Display Start Game Button]
-    L --> M[8. Start Game]
-    M --> N[9. Game Page]
+    LP[Landing Page] --> EP1[Enter Player 1 Name]
+    EP1 --> SN1[Submit Name Button Player 1]
+    SN1 --> EP2[Enter Player 2 Name]
+    EP2 --> SN2[Submit Name Button Player 2]
+    SN2 --> SGB[Start Game Button]
+    SGB --> GP[Go to Game Page]
 ```
+
+<br>
 
 ### Game Page:
 
@@ -111,10 +99,18 @@ Controller: Manages user input and coordinates between Model and View.
 
 ### Game References
 
-### Code References
+### JavaScript References
+
+### CSS References
+
+https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
 
 ### Documentations
 
 MVC Architecture: https://www.geeksforgeeks.org/mvc-design-pattern/ <br>
 Mermaid Markdown: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams <br>
 Flow Chart Documentation: https://info.aiim.org/aiim-blog/flowcharting-in-business-process-management
+
+```
+
+```
