@@ -1,6 +1,6 @@
 # Title of Game: Roll & Go!
 
-## Objective of this Project
+## Project Objective
 
 1. To develop a game that fulfil the MVP - Requirements set.
 2. Includes project planning details
@@ -14,7 +14,7 @@
 
 - Duration: 1 Week
 
-## Description of the Game
+## Game Description
 
 - This is a 2 player game that requires each player to roll the dice to determine how many moves they can make on the path. Who make it to the end of the path first wins the game.
 
