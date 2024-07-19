@@ -9,13 +9,20 @@ body {
   margin-right: 2%;
   margin-left: 2%;
 }
+
+#pageBorder {
+  background-color:#7992c7;
+  padding: 20px;
+  width: 100%;
+  height: 800px;
+  max-width: 1200px;
+  margin: 10px auto;
+  border-radius: 20px; /* Using fixed value for better control */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional for better visualization */
+}
+
 #gameTitle {
   /* background-color: orange; */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3%;
 }
 #landingPageContainer {
   /* background-color: pink; */
@@ -25,7 +32,7 @@ body {
   align-items: center;
   gap: 30px;
 }
-#playerNameContainer {
+.playerNameContainer {
   /* background-color: pink; */
   display: flex;
   flex-direction: row;
@@ -80,3 +87,178 @@ body {
   7px 6px 28px 1px rgba(0, 0, 0, 0.24); 
   transform: translateY(20px); 
 } 
+
+#gamePageRollContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#gamePagePlayerNameContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+}
+
+#rollDiceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+#rollDice {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 1em;
+  font-size: 2em;
+  background: radial-gradient(circle, #4caf50 0%, #4caf50 50%, #fff 100%);
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+  transition: background-color 0.3s ease;
+}
+
+#rollDice:hover {
+  background: radial-gradient(circle, #8045a0 0%, #8045a0 50%, #fff 100%);
+}
+
+#rollDice:active {
+  background: radial-gradient(circle, #333 0%, #333 50%, #fff 100%);
+  transform: translateY(4px); 
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================ Game Board ============================== */
+
+#gameBoardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr); /* 8 columns */
+  grid-template-rows: repeat(9, 1fr); /* 8 rows */
+  gap: 1px;
+  width: 550px;
+  height: 450px;
+  /* border: 1px solid #000; */
+  background-color: rgb(213, 245, 227 , 0.2);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+}
+
+.grid-item-fixed {
+  display: flex;
+  justify-content:left;
+  align-items:flex-end;
+  border: 1px solid #000;
+  padding: 3px;
+  font-size: 1rem;
+  background-color: #ffefd5;
+}
+
+.grid-item-fixed:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); 
+}
+
+/*
+positioning for each grid item.
+grid-column = 1/2 means starts at column 1 ends before column 2
+grid-row = start at row 8 ends before row 9
+https://www.w3schools.com/css/css_grid.asp
+*/
+/* Grid Items for 9x9 System (1 starting from bottom left) */
+#grid-item-1 { grid-column: 1 / 2; grid-row: 9 / 10; }
+#grid-item-2 { grid-column: 2 / 3; grid-row: 9 / 10; }
+#grid-item-3 { grid-column: 3 / 4; grid-row: 9 / 10; }
+#grid-item-4 { grid-column: 4 / 5; grid-row: 9 / 10; }
+#grid-item-5 { grid-column: 5 / 6; grid-row: 9 / 10; }
+#grid-item-6 { grid-column: 6 / 7; grid-row: 9 / 10; }
+#grid-item-7 { grid-column: 7 / 8; grid-row: 9 / 10; }
+#grid-item-8 { grid-column: 8 / 9; grid-row: 9 / 10; }
+#grid-item-9 { grid-column: 9 / 10; grid-row: 9 / 10; }
+#grid-item-10 { grid-column: 9 / 10; grid-row: 8 / 9; }
+#grid-item-11 { grid-column: 8 / 9; grid-row: 8 / 9; }
+#grid-item-12 { grid-column: 7 / 8; grid-row: 8 / 9; }
+#grid-item-13 { grid-column: 6 / 7; grid-row: 8 / 9; }
+#grid-item-14 { grid-column: 5 / 6; grid-row: 8 / 9; }
+#grid-item-15 { grid-column: 4 / 5; grid-row: 8 / 9; }
+#grid-item-16 { grid-column: 3 / 4; grid-row: 8 / 9; }
+#grid-item-17 { grid-column: 2 / 3; grid-row: 8 / 9; }
+#grid-item-18 { grid-column: 1 / 2; grid-row: 8 / 9; }
+#grid-item-19 { grid-column: 1 / 2; grid-row: 7 / 8; }
+#grid-item-20 { grid-column: 2 / 3; grid-row: 7 / 8; }
+#grid-item-21 { grid-column: 3 / 4; grid-row: 7 / 8; }
+#grid-item-22 { grid-column: 4 / 5; grid-row: 7 / 8; }
+#grid-item-23 { grid-column: 5 / 6; grid-row: 7 / 8; }
+#grid-item-24 { grid-column: 6 / 7; grid-row: 7 / 8; }
+#grid-item-25 { grid-column: 7 / 8; grid-row: 7 / 8; }
+#grid-item-26 { grid-column: 8 / 9; grid-row: 7 / 8; }
+#grid-item-27 { grid-column: 9 / 10; grid-row: 7 / 8; }
+#grid-item-28 { grid-column: 9 / 10; grid-row: 6 / 7; }
+#grid-item-29 { grid-column: 8 / 9; grid-row: 6 / 7; }
+#grid-item-30 { grid-column: 7 / 8; grid-row: 6 / 7; }
+#grid-item-31 { grid-column: 6 / 7; grid-row: 6 / 7; }
+#grid-item-32 { grid-column: 5 / 6; grid-row: 6 / 7; }
+#grid-item-33 { grid-column: 4 / 5; grid-row: 6 / 7; }
+#grid-item-34 { grid-column: 3 / 4; grid-row: 6 / 7; }
+#grid-item-35 { grid-column: 2 / 3; grid-row: 6 / 7; }
+#grid-item-36 { grid-column: 1 / 2; grid-row: 6 / 7; }
+#grid-item-37 { grid-column: 1 / 2; grid-row: 5 / 6; }
+#grid-item-38 { grid-column: 2 / 3; grid-row: 5 / 6; }
+#grid-item-39 { grid-column: 3 / 4; grid-row: 5 / 6; }
+#grid-item-40 { grid-column: 4 / 5; grid-row: 5 / 6; }
+#grid-item-41 { grid-column: 5 / 6; grid-row: 5 / 6; }
+#grid-item-42 { grid-column: 6 / 7; grid-row: 5 / 6; }
+#grid-item-43 { grid-column: 7 / 8; grid-row: 5 / 6; }
+#grid-item-44 { grid-column: 8 / 9; grid-row: 5 / 6; }
+#grid-item-45 { grid-column: 9 / 10; grid-row: 5 / 6; }
+#grid-item-46 { grid-column: 9 / 10; grid-row: 4 / 5; }
+#grid-item-47 { grid-column: 8 / 9; grid-row: 4 / 5; }
+#grid-item-48 { grid-column: 7 / 8; grid-row: 4 / 5; }
+#grid-item-49 { grid-column: 6 / 7; grid-row: 4 / 5; }
+#grid-item-50 { grid-column: 5 / 6; grid-row: 4 / 5; }
+#grid-item-51 { grid-column: 4 / 5; grid-row: 4 / 5; }
+#grid-item-52 { grid-column: 3 / 4; grid-row: 4 / 5; }
+#grid-item-53 { grid-column: 2 / 3; grid-row: 4 / 5; }
+#grid-item-54 { grid-column: 1 / 2; grid-row: 4 / 5; }
+#grid-item-55 { grid-column: 1 / 2; grid-row: 3 / 4; }
+#grid-item-56 { grid-column: 2 / 3; grid-row: 3 / 4; }
+#grid-item-57 { grid-column: 3 / 4; grid-row: 3 / 4; }
+#grid-item-58 { grid-column: 4 / 5; grid-row: 3 / 4; }
+#grid-item-59 { grid-column: 5 / 6; grid-row: 3 / 4; }
+#grid-item-60 { grid-column: 6 / 7; grid-row: 3 / 4; }
+#grid-item-61 { grid-column: 7 / 8; grid-row: 3 / 4; }
+#grid-item-62 { grid-column: 8 / 9; grid-row: 3 / 4; }
+#grid-item-63 { grid-column: 9 / 10; grid-row: 3 / 4; }
+#grid-item-64 { grid-column: 9 / 10; grid-row: 2 / 3; }
+#grid-item-65 { grid-column: 8 / 9; grid-row: 2 / 3; }
+#grid-item-66 { grid-column: 7 / 8; grid-row: 2 / 3; }
+#grid-item-67 { grid-column: 6 / 7; grid-row: 2 / 3; }
+#grid-item-68 { grid-column: 5 / 6; grid-row: 2 / 3; }
+#grid-item-69 { grid-column: 4 / 5; grid-row: 2 / 3; }
+#grid-item-70 { grid-column: 3 / 4; grid-row: 2 / 3; }
+#grid-item-71 { grid-column: 2 / 3; grid-row: 2 / 3; }
+#grid-item-72 { grid-column: 1 / 2; grid-row: 2 / 3; }
+#grid-item-73 { grid-column: 1 / 2; grid-row: 1 / 2; }
+#grid-item-74 { grid-column: 2 / 3; grid-row: 1 / 2; }
+#grid-item-75 { grid-column: 3 / 4; grid-row: 1 / 2; }
+#grid-item-76 { grid-column: 4 / 5; grid-row: 1 / 2; }
+#grid-item-77 { grid-column: 5 / 6; grid-row: 1 / 2; }
+#grid-item-78 { grid-column: 6 / 7; grid-row: 1 / 2; }
+#grid-item-79 { grid-column: 7 / 8; grid-row: 1 / 2; }
+#grid-item-80 { grid-column: 8 / 9; grid-row: 1 / 2; }
+#grid-item-81 { grid-column: 9 / 10; grid-row: 1 / 2; }

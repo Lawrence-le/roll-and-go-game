@@ -76,15 +76,15 @@ flowchart TB
 
 ![Landing Page Wireframe](assets-readme/wireframe/wf-1.png)
 
-#### - Game Page - Roll Stage - option 1
+### - Game Page - Roll Stage - option 1
 
 ![Roll Stage Wireframe - 1](assets-readme/wireframe/wf-2.png)
 
-#### - Game Page - Roll Stage - option 2
+### - Game Page - Roll Stage - option 2
 
 ![Roll Stage Wireframe - 2](assets-readme/wireframe/wf-3.png)
 
-#### - Game Page - Go Stage - option 1
+### - Game Page - Go Stage - option 1
 
 ![Go Stage Wireframe](assets-readme/wireframe/wf-4.png)
 
@@ -153,6 +153,7 @@ document.getElementById("submitPlayer2")
 
 ### CSS
 
+- https://www.w3schools.com/css/css_grid.asp
 - https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
 
 ### Documentations
