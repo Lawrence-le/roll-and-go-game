@@ -1,3 +1,5 @@
+# Title of Game: Roll & Go!
+
 ## Timeline
 
 Duration: 1 Week
@@ -10,7 +12,6 @@ Duration: 1 Week
 
 - As a user, I want to see the <b>landing page</b> when I arrive at the website to know I'm in the right place.
 - As a user, I want to be able to <b>key in my name</b>, so I know what is my character name.
-- As a user, I want to see a pick <b>character</b> option so I know what character can I choose from.
 - As a user, I want a <b>start game</b> button so I can start the game when I am ready.
 - As a user, I want a <b>game page</b> after I clicked the start game button so I know the game has started.
 - As a user, during the game I want to see <b>my character name/image shown</b> to indicate my presence.
@@ -56,7 +57,9 @@ flowchart TB
 
 ### Wireframe:
 
-IMG
+### <p align="center"> Landing Page
+
+![alt text](readMe-assets\image-1.png)
 
 ## Code Architecture
 
