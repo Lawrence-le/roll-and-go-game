@@ -147,11 +147,11 @@ document.getElementById("submitPlayer2")
 
 ## References
 
-### Game References
+### Game
 
-### JavaScript References
+### JavaScript
 
-### CSS References
+### CSS
 
 - https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
 
