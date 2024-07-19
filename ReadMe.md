@@ -1,4 +1,4 @@
-# Title of Game: Roll & Go!
+# Game Title: Roll & Go!
 
 ## Project Objective
 
