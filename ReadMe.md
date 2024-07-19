@@ -155,9 +155,15 @@ document.getElementById("submitPlayer2")
 
 - https://www.w3schools.com/css/css_grid.asp
 - https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
+- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_shapes_triangle-left
 
 ### Documentations
 
 - MVC Architecture: https://www.geeksforgeeks.org/mvc-design-pattern/ <br>
 - Mermaid Markdown: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams <br>
 - Flow Chart Documentation: https://info.aiim.org/aiim-blog/flowcharting-in-business-process-management
+
+### Game Assets Attribution
+
+<a href="https://www.flaticon.com/free-icons/chest" title="chest icons">Chest icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/achievement" title="achievement icons">Achievement icons created by Upnow Graphic - Flaticon</a>
