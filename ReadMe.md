@@ -1,14 +1,33 @@
 # Title of Game: Roll & Go!
 
+## Objective of this Project:
+
+1. To develop a game that fulfil the MVP - Requirements set.
+2. Includes project planning details
+   - User stories
+   - Wireframes
+   - Game architecture
+   - Code architecture
+
+## Requirement
+
+- Meet the project deadline
+
 ## Timeline
 
-Duration: 1 Week
+- Duration: 1 Week
+
+## Description of the Game:
+
+- This is a 2 player game that requires each player to roll the dice to determine how many moves they can make on the path. Who make it to the end of the path first wins the game.
+
+## How to play the Game:
+
+- WIP
 
 ## User Stories
 
-### (MVP Release)
-
-<!-- - As a user, I want to see a <b>loading page</b> when I arrive at the website, so I know I'm in the right place. -->
+### (MVP - Requirement)
 
 - As a user, I want to see the <b>landing page</b> when I arrive at the website to know I'm in the right place.
 - As a user, I want to be able to <b>key in my name</b>, so I know what is my character name.
@@ -17,10 +36,10 @@ Duration: 1 Week
 - As a user, during the game I want to see <b>my character name/image shown</b> to indicate my presence.
 - As a user, I want a <b>roll dice button</b> so I can roll the dice.
 - As a user, I want to see what number is rolled <b>(my dice digit)</b>.
-- As a user, I want to see my <b>character/pointer moves</b> along the path.
+- As a user, I want to see my <b>character/marker moves</b> along the path.
 - As a user, I want to know <b>who is the winner</b> of the game.
 
-### (MMP Release)
+### (Stretch Goals - Not Mandatory)
 
 - Includes all features in MVP Release.
 - As a user, I could have a mystery item that provides boost to my character.
@@ -52,25 +71,25 @@ flowchart TB
 
 ### Game Page:
 
-1. XXXX
+- WIP
 
 ### Wireframe:
 
-#### <p align="center"> Landing Page
+#### - Landing Page
 
-![alt text](assets-readme\wireframe\wf-1.png)
+![Landing Page Wireframe](assets-readme\wireframe\wf-1.png)
 
-#### <p align="center"> Game Page - Dice Stage - option 1
+#### - Game Page - Roll Stage - option 1
 
-![alt text](assets-readme\wireframe\wf-2.png)
+![Roll Stage Wireframe - 1](assets-readme\wireframe\wf-2.png)
 
-#### <p align="center"> Game Page - Dice Stage - option 2
+#### - Game Page - Roll Stage - option 2
 
-![alt text](assets-readme\wireframe\wf-3.png)
+![Roll Stage Wireframe - 2](assets-readme\wireframe\wf-3.png)
 
-#### <p align="center"> Game Page - Go Stage - option 1
+#### - Game Page - Go Stage - option 1
 
-![alt text](assets-readme\wireframe\wf-4.png)
+![Go Stage Wireframe](assets-readme\wireframe\wf-4.png)
 
 ## Code Architecture
 
@@ -129,25 +148,6 @@ document.getElementById("submitPlayer2")
 
 <br>
 
-Constants:
-
-Variables (state):
-
-Cached Element References:
-
-Render Functions:
-
-Functions:
-
-Event Listeners:
-
-<br>
-<br>
-
-Model: Handles game logic, rules, and data.
-View: Renders the UI and updates based on Model data.
-Controller: Manages user input and coordinates between Model and View.
-
 ## References
 
 ### Game References
@@ -156,14 +156,10 @@ Controller: Manages user input and coordinates between Model and View.
 
 ### CSS References
 
-https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
+- https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
 
 ### Documentations
 
-MVC Architecture: https://www.geeksforgeeks.org/mvc-design-pattern/ <br>
-Mermaid Markdown: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams <br>
-Flow Chart Documentation: https://info.aiim.org/aiim-blog/flowcharting-in-business-process-management
-
-```
-
-```
+- MVC Architecture: https://www.geeksforgeeks.org/mvc-design-pattern/ <br>
+- Mermaid Markdown: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams <br>
+- Flow Chart Documentation: https://info.aiim.org/aiim-blog/flowcharting-in-business-process-management
