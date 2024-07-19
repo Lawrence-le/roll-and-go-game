@@ -15,7 +15,6 @@ Duration: 1 Week
 - As a user, I want a <b>start game</b> button so I can start the game when I am ready.
 - As a user, I want a <b>game page</b> after I clicked the start game button so I know the game has started.
 - As a user, during the game I want to see <b>my character name/image shown</b> to indicate my presence.
-- As a user, I want to know whose <b>turn</b> is it to roll the dice.
 - As a user, I want a <b>roll dice button</b> so I can roll the dice.
 - As a user, I want to see what number is rolled <b>(my dice digit)</b>.
 - As a user, I want to see my <b>character/pointer moves</b> along the path.
@@ -57,9 +56,21 @@ flowchart TB
 
 ### Wireframe:
 
-### <p align="center"> Landing Page
+#### <p align="center"> Landing Page
 
-![alt text](readMe-assets\image-1.png)
+![alt text](assets-readme\wireframe\wf-1.png)
+
+#### <p align="center"> Game Page - Dice Stage - option 1
+
+![alt text](assets-readme\wireframe\wf-2.png)
+
+#### <p align="center"> Game Page - Dice Stage - option 2
+
+![alt text](assets-readme\wireframe\wf-3.png)
+
+#### <p align="center"> Game Page - Go Stage - option 1
+
+![alt text](assets-readme\wireframe\wf-4.png)
 
 ## Code Architecture
 
@@ -69,27 +80,66 @@ flowchart TB
 
 /_---------- Variables (state) ---------_/
 
+```
+const game = {
+  players: [
+    { name: "", currLocation: 0 },
+    { name: "", currLocation: 0 },
+  ],
+  playerTurn: 0,
+  rollNum: 0,
+};
+```
+
 /_----- Cached Element References -----_/
+
+```
+board = {
+
+}
+```
 
 /_---------- Render Functions ---------_/
 
+```
+render()
+
+```
+
 /_-------------- Functions -------------_/
+
+```
+handleClick()
+handleNameSubmission()
+checkWin()
+resetGame()
+
+
+```
 
 /_----------- Event Listeners ----------_/
 
+```
+document.getElementById("startButton");
+document.getElementById("rollButton");
+document.getElementById("submitPlayer1")
+document.getElementById("submitPlayer2")
+
+```
+
 <br>
 
-Constants: This section defines fixed values that do not change throughout the game. These could include things like game settings, winning conditions, or other immutable values.
+Constants:
 
-Variables (state): This section holds the game's dynamic state, such as the current board configuration, the current player, and whether the game is active or over.
+Variables (state):
 
-Cached Element References: This section caches references to DOM elements that are frequently accessed or manipulated. This improves performance by avoiding repeated DOM queries.
+Cached Element References:
 
-Render Functions: This section defines all the functions that handle the rendering. Namely rendering functions.
+Render Functions:
 
-Functions: This section defines all the functions that handle the game logic and state updates. These functions include the main game logic and helper functions.
+Functions:
 
-Event Listeners: This section sets up event listeners that respond to user actions, such as clicks or key presses. These listeners trigger the appropriate functions to update the game state and re-render the UI.
+Event Listeners:
 
 <br>
 <br>
