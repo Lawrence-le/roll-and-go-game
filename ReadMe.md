@@ -73,7 +73,7 @@ flowchart TB
 
 - WIP
 
-### Wireframe:
+## Wireframe:
 
 #### - Landing Page
 
