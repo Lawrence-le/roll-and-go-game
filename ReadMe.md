@@ -77,19 +77,19 @@ flowchart TB
 
 #### - Landing Page
 
-![Landing Page Wireframe](assets-readme\wireframe\wf-1.png)
+![Landing Page Wireframe](assets-readme/wireframe/wf-1.png)
 
 #### - Game Page - Roll Stage - option 1
 
-![Roll Stage Wireframe - 1](assets-readme\wireframe\wf-2.png)
+![Roll Stage Wireframe - 1](assets-readme/wireframe/wf-2.png)
 
 #### - Game Page - Roll Stage - option 2
 
-![Roll Stage Wireframe - 2](assets-readme\wireframe\wf-3.png)
+![Roll Stage Wireframe - 2](assets-readme/wireframe/wf-3.png)
 
 #### - Game Page - Go Stage - option 1
 
-![Go Stage Wireframe](assets-readme\wireframe\wf-4.png)
+![Go Stage Wireframe](assets-readme/wireframe/wf-4.png)
 
 ## Code Architecture
 
