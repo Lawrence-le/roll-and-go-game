@@ -1,6 +1,6 @@
 # Title of Game: Roll & Go!
 
-## Objective of this Project:
+## Objective of this Project
 
 1. To develop a game that fulfil the MVP - Requirements set.
 2. Includes project planning details
@@ -8,20 +8,17 @@
    - Wireframes
    - Game architecture
    - Code architecture
-
-## Requirement
-
-- Meet the project deadline
+3. Meet the project deadline
 
 ## Timeline
 
 - Duration: 1 Week
 
-## Description of the Game:
+## Description of the Game
 
 - This is a 2 player game that requires each player to roll the dice to determine how many moves they can make on the path. Who make it to the end of the path first wins the game.
 
-## How to play the Game:
+## How to play the Game
 
 - WIP
 
@@ -47,7 +44,7 @@
 
 ## Game Architecture
 
-### Landing Page:
+### Landing Page
 
 1. Landing Page: The system displays the landing page.
 2. Enter Player 1 Name: User enters Player 1 name in the input fields
@@ -69,11 +66,11 @@ flowchart TB
 
 <br>
 
-### Game Page:
+### Game Page
 
 - WIP
 
-## Wireframe:
+## Wireframe
 
 #### - Landing Page
 
