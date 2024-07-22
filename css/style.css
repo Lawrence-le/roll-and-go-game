@@ -130,10 +130,11 @@ h3 {
 
 .grid-item-fixed:nth-child(odd) {
   background-color: #ff995e;
-  border: 2px, #333;
+  /* border: 2px, #333; */
 }
 
 #gameMessage {
+  height: 1rem;
   font-weight: bold;
   font-size: 1em;
   text-align: center;
@@ -163,7 +164,7 @@ h3 {
 }
 .flexItemDashBoard {
   display: flex;
-  /* background-color: lightblue; */
+  background-color: lightblue;
 }
 /* ref https://www.geeksforgeeks.org/how-to-set-the-size-of-specific-flex-item-using-css/*/
 
@@ -171,7 +172,7 @@ h3 {
   flex-grow: 3;
   /* Set the size of the third flex item */
 }
-.flexItemDashBoard:nth-child(5) {
+.flexItemDashBoard:nth-child(9) {
   flex-grow: 3;
   justify-content: flex-end;
   /* Set the size of the third flex item */
@@ -267,6 +268,36 @@ h3 {
 #diceRolled {
   font-size: 0.8rem;
   height: 1.5rem;
+}
+#diceResultP1round1 {
+  align-items: flex-start;
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  font-size: 2em;
+  align-items: center;
+}
+#diceResultP1round2 {
+  text-align: center;
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  font-size: 2em;
+  align-items: center;
+}
+#diceResultP2round1 {
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  font-size: 2em;
+  align-items: center;
+}
+#diceResultP2round2 {
+  width: 35px;
+  height: 35px;
+  background-size: cover;
+  font-size: 2em;
+  align-items: center;
 }
 
 #currentPositionP1,
@@ -645,7 +676,6 @@ https://www.w3schools.com/css/css_grid.asp
   position: absolute;
   width: 37px;
   height: 37px;
-  /* background-color: red; */
   z-index: 10;
 
   background: url("assets-game/p1-flag.png") no-repeat center center;
@@ -659,7 +689,6 @@ https://www.w3schools.com/css/css_grid.asp
   position: absolute;
   width: 40px;
   height: 34px;
-  /* background-color: red; */
   z-index: 10;
 
   background: url("assets-game/p2-flag.png") no-repeat center center;

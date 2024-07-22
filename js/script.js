@@ -6,13 +6,12 @@ rollCounter = 0;
 
 const game = {
   players: [
-    { Name: "", currLocation: 1, diceRollTotal: 0, bombCounter: 0 },
-    { Name: "", currLocation: 1, diceRollTotal: 0, bombCounter: 0 },
+    { Name: "", currLocation: 1, diceRollTotal: 0 },
+    { Name: "", currLocation: 1, diceRollTotal: 0 },
   ],
   gridItems: {
     balloon: [19, 28, 55, 65],
-    minusMove: [26, 45],
-    addMove: [55, 15],
+    bomb: [8, 34, 56, 78],
   },
   playerTurn: 1,
   rollNum: ["", ""],
@@ -42,23 +41,24 @@ const gridItems = document.querySelectorAll(".grid-item-fixed");
 const currentPositionP1 = document.getElementById("currentPositionP1");
 const currentPositionP2 = document.getElementById("currentPositionP2");
 const gameMessage = document.getElementById("gameMessage");
+const diceResultP1round1 = document.getElementById("diceResultP1round1");
+const diceResultP1round2 = document.getElementById("diceResultP1round2");
+const diceResultP2round1 = document.getElementById("diceResultP2round1");
+const diceResultP2round2 = document.getElementById("diceResultP2round2");
 
 // /_---------- Render Functions ---------_/
 // Initialisation of the game loading page.
 
-// const init = () => {
-//   gamePageRollContainer.style.display = "flex";
-//   landingPageContainer.style.display = "none";
-//   // diceRolledContainer.style.display = "flex";
-//   renderPlayerTurn();
-//   moveMarkers();
-//   console.log("Marker Moved");
-// };
-
 const init = () => {
+  //without loading page
   gamePageRollContainer.style.display = "flex";
   landingPageContainer.style.display = "none";
   diceRolledContainer.style.display = "none";
+
+  // gamePageRollContainer.style.display = "none";
+  // landingPageContainer.style.display = "flex";
+  // diceRolledContainer.style.display = "none";
+
   renderPlayerTurn();
   moveMarkers();
 };
@@ -66,12 +66,13 @@ const init = () => {
 const render = () => {
   recordPlayerDice();
   diceRolledTotalAnimationOn();
-  // renderPlayerTurn();
 };
+
 // /_-------------- Functions -------------_/
 // handleName1, handleName2 function controls:
 // 1. Check that all names are submitted. If empty string submitted, user will be prompt to enter names.
 // 2. If all names are submitted, welcome message will appear.
+
 const handleName1 = () => {
   const playerName = document.getElementById("player1NameInput").value;
   if (playerName.placeholder === `Enter Player 1 Name` || playerName === "") {
@@ -100,6 +101,7 @@ const handleName2 = () => {
 
 // submitButtons function controls:
 // 1. Clicked submit button will change color after name input.
+
 const submitButtons = () => {
   if (game.players[0].Name !== "") {
     submitPlayer1Button.style.backgroundColor = "#8045a0";
@@ -112,6 +114,7 @@ const submitButtons = () => {
 // startGame function controls:
 // 1. Check that all names are submitted before startGame can be activated
 // 2. If all names are submitted, Game Page will be loaded.
+
 const startGame = () => {
   if (game.players[1].Name === "" || game.players[0].Name === "") {
     startPrompt.textContent = "Please submit all names to START GAME";
@@ -125,9 +128,8 @@ const startGame = () => {
   console.log(game); // check if game object has logged the names
 };
 
-//todo PLAYER TURN ========================================================================
-
 // playerTurn function control switch player turn
+
 const playerTurn = () => {
   checkGridItems();
   if (game.playerTurn === 1) {
@@ -137,8 +139,6 @@ const playerTurn = () => {
   }
   checkWinner();
 };
-
-//todo PLAYER TURN ========================================================================
 
 // rollDice function roll dice twice and record the total number in rollTotal
 
@@ -153,6 +153,7 @@ const rollDice = () => {
     document.getElementById(
       "diceRolled"
     ).textContent = `1st Roll: ${rolledNum}`;
+    diceResultP1round1.textContent = rolledNum;
 
     //! For Second Roll
   } else if (rollCounter === 2) {
@@ -165,8 +166,9 @@ const rollDice = () => {
     for (let i = 0; i < game.rollNum.length; i++) {
       rollTotal += game.rollNum[i];
     }
+    diceResultP1round2.textContent = rolledNum;
     recordPlayerDice();
-    game.rollNum = ["", ""]; //reset rollNum after every 2 dice rolls.
+    // game.rollNum = ["", ""]; //reset rollNum after every 2 dice rolls.
     console.log(
       `END OF DICE ROLL | Player 1 Rolled Total ${game.players[0].diceRollTotal}`
     );
@@ -200,11 +202,18 @@ const diceRolledTotalAnimationOff = () => {
     checkWinner();
 
     setTimeout(() => {
-      rollButton.disabled = false;
-      console.log("disabled");
+      if (
+        game.players[0].currLocation >= gridItems.length ||
+        game.players[1].currLocation >= gridItems.length
+      ) {
+        rollButton.disabled = true;
+      } else {
+        rollButton.disabled = false;
+        console.log("disabled");
 
-      renderPlayerTurn();
-    }, 800);
+        renderPlayerTurn();
+      }
+    }, 400);
 
     // renderPlayerTurn();
   }, 500);
@@ -230,14 +239,14 @@ const recordPlayerDice = () => {
     game.players[0].currLocation += rollTotal; //2
     console.log("Player 1 Roll total:", game.players[0].diceRollTotal);
     console.log(game);
-    currentPositionP1.textContent = `Player 1, Curr Loc: ${game.players[0].currLocation} , Total Roll: ${rollTotal}`;
+    currentPositionP1.textContent = `Player 1, Curr Loc: ${game.players[0].currLocation} , Roll Total: ${rollTotal}`;
     console.log("Player 1 Move :", game.players[0].currLocation);
   } else if (game.playerTurn === 2) {
     game.players[1].diceRollTotal = rollTotal; //1
     game.players[1].currLocation += rollTotal; //2
     console.log("Player 2 Roll total:", game.players[1].diceRollTotal);
     console.log(game);
-    currentPositionP2.textContent = `Player 2 Curr Loc: ${game.players[1].currLocation} , Total Roll: ${rollTotal}`;
+    currentPositionP2.textContent = `Player 2 Curr Loc: ${game.players[1].currLocation} , Roll Total: ${rollTotal}`;
     console.log("Player 2 Move :", game.players[1].currLocation);
   }
   rollButton.disabled = true;
@@ -318,7 +327,7 @@ const checkGridItems = () => {
     positions.forEach((position) => {
       if (currentPlayer.currLocation === position) {
         switch (key) {
-          case "balloon":
+          case "balloon": //! BALLOON
             if (currentPlayer.currLocation === 65) {
               currentPlayer.currLocation += 15;
             } else {
@@ -327,11 +336,24 @@ const checkGridItems = () => {
             console.log(
               `Player ${
                 currentPlayerIndex + 1
-              } hit a balloon at position ${position}! Moving to ${
+              } hit a Balloon! at position ${position}! Moving to ${
                 currentPlayer.currLocation
               }.`
             );
-            gameMessage.textContent = `${currentPlayer.Name} got a balloon boost!`;
+            gameMessage.textContent = `NICE, ${currentPlayer.Name} you got a Balloon Boost! Progress to grid ${currentPlayer.currLocation} `;
+            console.log(`Location After Update: ${currentPlayer.currLocation}`);
+            break;
+          case "bomb": //! BOMB
+            currentPlayer.currLocation -= 6;
+            console.log(
+              `Player ${
+                currentPlayerIndex + 1
+              } hit a BOMB! at position ${position}! Moving to ${
+                currentPlayer.currLocation
+              }.`
+            );
+            gameMessage.style.color = "red";
+            gameMessage.textContent = `Sorry ${currentPlayer.Name}, you stepped on a BOMB! Go BACK to grid ${currentPlayer.currLocation}`;
             console.log(`Location After Update: ${currentPlayer.currLocation}`);
             break;
         }
@@ -405,29 +427,53 @@ const applyWall = (borderStyle, totalGrid) => {
 
 applyWall(borderStyle, totalGrid);
 
+// const applyDiceResultPlayer1 = () => {
+//   if(row)
+// };
+
 //============================== Apply Styles to Grid Items ==========================
 
-const applyStylesToGridItems = () => {
-  const gridItemIds = [
+const applyStylesToGridItems = (balloonIcon, bombIcon) => {
+  const balloonGridItemIds = [
     "grid-item-19",
     "grid-item-28",
     "grid-item-55",
     "grid-item-65",
   ];
 
-  gridItemIds.forEach((index) => {
-    const element = document.getElementById(index);
+  const bombGridItemIds = [
+    "grid-item-8",
+    "grid-item-34",
+    "grid-item-56",
+    "grid-item-78",
+  ];
+
+  balloonGridItemIds.forEach((id) => {
+    const element = document.getElementById(id);
     if (element) {
-      element.style.background =
-        "url('css/assets-game/balloon.png') no-repeat center center";
+      element.style.background = balloonIcon;
       element.style.backgroundSize = "35px 35px";
-      element.style.backgroundColor = "pink";
+      element.style.backgroundColor = "#2C3E50 ";
+      element.style.color = "transparent";
+    }
+  });
+
+  bombGridItemIds.forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.background = bombIcon;
+      element.style.backgroundSize = "35px 35px";
+      element.style.backgroundColor = "#2C3E50 ";
       element.style.color = "transparent";
     }
   });
 };
 
-applyStylesToGridItems();
+const balloonIcon =
+  "url('css/assets-game/balloon.png') no-repeat center center";
+const bombIcon = "url('css/assets-game/bomb.png') no-repeat center center";
+
+applyStylesToGridItems(balloonIcon, bombIcon);
 
 // ========================= TEST LOG ==========================
 console.log("PlayerTurn Now is:", game.playerTurn); // Output: 9
