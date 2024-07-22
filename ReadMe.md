@@ -96,66 +96,28 @@ flowchart TB
 
 /_---------- Variables (state) ---------_/
 
-```
-const game = {
-  players: [
-    { name: "", currLocation: 0 },
-    { name: "", currLocation: 0 },
-  ],
-  playerTurn: 0,
-  rollNum: 0,
-};
-```
-
 /_----- Cached Element References -----_/
-
-```
-board = {
-
-}
-```
 
 /_---------- Render Functions ---------_/
 
-```
-render()
-
-```
-
 /_-------------- Functions -------------_/
 
-```
-handleClick()
-handleNameSubmission()
-checkWin()
-resetGame()
-
-
-```
-
 /_----------- Event Listeners ----------_/
-
-```
-document.getElementById("startButton");
-document.getElementById("rollButton");
-document.getElementById("submitPlayer1")
-document.getElementById("submitPlayer2")
-
-```
 
 <br>
 
 ## References
 
-### Game
-
 ### JavaScript
+
+- https://medium.com/@belloquadriolawale/the-getboundingclientrect-method-5cd13e206bcf
+- https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
 
 ### CSS
 
 - https://www.w3schools.com/css/css_grid.asp
 - https://www.geeksforgeeks.org/how-to-add-a-pressed-effect-on-button-click-in-css/
-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_shapes_triangle-left
+- https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Auto-placement_in_grid_layout
 
 ### Documentations
 
@@ -166,4 +128,24 @@ document.getElementById("submitPlayer2")
 ### Game Assets Attribution
 
 <a href="https://www.flaticon.com/free-icons/chest" title="chest icons">Chest icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/achievement" title="achievement icons">Achievement icons created by Upnow Graphic - Flaticon</a>
+<br>
+<a href="https://www.flaticon.com/free-icons/award" title="award icons">Award icons created by Freepik - Flaticon</a>
+<br>
+<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by vectorsmarket15 - Flaticon</a>
+<br>
+<a href="https://www.flaticon.com/free-icons/rocket" title="rocket icons">Rocket icons created by Freepik - Flaticon</a>
+<br>
+<a href="https://www.flaticon.com/free-icons/grenade" title="grenade icons">Grenade icons created by Umeicon - Flaticon</a>
+<br>
+<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Maxim Basinski Premium - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/location-marker" title="location marker icons">Location marker icons created by Earthz Stocker - Flaticon</a>
+
+Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=39222">Pixabay</a>
+
+### Other References
+
+- https://github.com/jahid28/Games/blob/main/SnakesAndLadder/game.js

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roll and Go!</title>
     <link rel="stylesheet" href="./css/style.css" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
   </head>
   <body>
     <section id="pageBorder">
@@ -79,7 +81,7 @@
           <div id="grid-item-20" class="grid-item-fixed">20</div>
           <div id="grid-item-21" class="grid-item-fixed">21</div>
           <div id="grid-item-22" class="grid-item-fixed">22</div>
-          <div id="grid-item-23" class="grid-item-fixed">23</div>
+          <div id="grid-item-23" class="grid-item-fixed">23</div>          
           <div id="grid-item-24" class="grid-item-fixed">24</div>
           <div id="grid-item-25" class="grid-item-fixed">25</div>
           <div id="grid-item-26" class="grid-item-fixed">26</div>
@@ -138,25 +140,33 @@
           <div id="grid-item-79" class="grid-item-fixed">79</div>
           <div id="grid-item-80" class="grid-item-fixed">80</div>
           <div id="grid-item-81" class="grid-item-fixed">81</div>
+          <div id="markerPlayer1" class="markerPlayer1"></div>
+          <div id="markerPlayer2" class="markerPlayer2"></div>
         </div>
       </div>
-      <div id="gamePagePlayerNameContainer">
-        <div class="playerName", id="player1Name"></div>
-        <div class="playerName", id="player2Name"></div>
+      <div id="gameMessage">TRY TEST</div>
+      <div id="diceRolled"></div>
+      <div id="gamePageDashboardContainer">
+        <div class="flexItemDashBoard" id="gamePageDashName1">
+          <div id="player1Name"></div>
+          <div class="playerNameLabel1">Player 1</div>
+        </div>
+        <div class="flexItemDashBoard" id="triangleLeft"><img src="css/assets-game/arrow-left.png" alt="arrow left" width="40px" /></div>
+        <div class="flexItemDashBoard"><button id="rollDice"></button></div>
+        <div class="flexItemDashBoard" id="triangleRight"><img src="css/assets-game/arrow-right.png" alt="arrow right" width="40px" /></div>
+        <div class="flexItemDashBoard" id="gamePageDashName2">
+          <div id="player2Name"></div>
+          <div class="playerNameLabel2">Player 2</div>
+        </div> 
       </div>
-      <div id="gamePagePlayerNameContainer">
-        <div class="playerNameLabel">Player 1</div>
-        <div class="playerNameLabel">Player 2</div>
-      </div>
-      <div id="rollDiceContainer">
-        <div class="triangle-left"></div>
-        <div><button id="rollDice">Roll</button></div>
-        <div class="triangle-right"></div>
-      </div>
-
+    </section>
+    <section id="diceRolledContainer">
+      <div id="diceRolledTotal"></div>
+    </section>
+    <section>   
+      <div id="currentPositionP1"></div>
+      <div id="currentPositionP2"></div>
     </section>
   </body>
-
-
   <script defer src="./js/script.js"></script>
 </html>
