@@ -11,7 +11,7 @@ const game = {
   ],
   gridItems: {
     balloon: [19, 28, 55, 65],
-    bomb: [8, 34, 56, 78],
+    bomb: [8, 35, 56, 78],
   },
   playerTurn: 1,
   rollNum: ["", ""],
@@ -51,13 +51,13 @@ const diceResultP2round2 = document.getElementById("diceResultP2round2");
 
 const init = () => {
   //without loading page
-  gamePageRollContainer.style.display = "flex";
-  landingPageContainer.style.display = "none";
-  diceRolledContainer.style.display = "none";
-
-  // gamePageRollContainer.style.display = "none";
-  // landingPageContainer.style.display = "flex";
+  // gamePageRollContainer.style.display = "flex";
+  // landingPageContainer.style.display = "none";
   // diceRolledContainer.style.display = "none";
+
+  gamePageRollContainer.style.display = "none";
+  landingPageContainer.style.display = "flex";
+  diceRolledContainer.style.display = "none";
 
   renderPlayerTurn();
   moveMarkers();
@@ -462,7 +462,7 @@ const applyStylesToGridItems = (balloonIcon, bombIcon) => {
 
   const bombGridItemIds = [
     "grid-item-8",
-    "grid-item-34",
+    "grid-item-35",
     "grid-item-56",
     "grid-item-78",
   ];
