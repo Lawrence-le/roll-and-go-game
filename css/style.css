@@ -19,7 +19,7 @@ body {
 }
 
 #pageBorder {
-  background-color: #7992c7;
+  background-color: #f8f9f9;
   padding: 5px;
   width: 100%;
   height: 650px;
@@ -28,9 +28,9 @@ body {
   border-radius: 20px; /* Using fixed value for better control */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional for better visualization */
 }
-h3 {
+.landingPageMessage {
   margin: 0;
-  padding-bottom: 0.5rem;
+  padding-bottom: 2rem;
 }
 #gameTitle {
   text-align: center;
@@ -41,7 +41,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 .playerNameContainer {
   /* background-color: pink; */
@@ -54,38 +54,50 @@ h3 {
 .input-container input {
   display: block;
   width: 100%;
-  font-size: 1.5rem;
+  height: 2rem;
+  font-size: 1.2rem;
   border: none;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Color */
 }
 
 .button {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   display: inline-block;
-  background-color: #4caf50;
+  background-color: #34495e;
   color: #fff;
   text-decoration: none;
   border: none;
+  height: 2rem;
   cursor: pointer;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Color */
   transition: background-color 0.3s ease;
 }
 #startGame {
   font-size: 2em;
-  background-color: #4caf50;
-  padding: 2%;
+  background-color: #34495e;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15rem;
+  width: 100%;
   height: 100%;
   border: none;
+  margin-bottom: 15px;
 }
 .greeting {
-  font-size: 1.5em;
+  font-size: 1rem;
+  height: 1.2rem;
   color: rgb(50, 50, 50);
   margin-bottom: 40px;
   height: 0.5em;
+}
+#diceLogo {
+  background: url("assets-game/dice-disabled.png") no-repeat center center;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+  transform: scale(1.5);
+  z-index: 1;
+  margin-bottom: 2rem;
 }
 
 /* ============================ Game Board ============================== */
@@ -152,15 +164,15 @@ h3 {
   background-color: #ff995e;
 }
 #startGame:hover {
-  background-color: #8045a0;
+  background-color: #633974;
 }
 .button:hover {
-  background-color: #8045a0;
+  background-color: #633974;
   transition: transform 0.5s ease;
 }
 .button:active {
   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-  transform: translateY(20px);
+  transform: translateY(7px);
 }
 .flexItemDashBoard {
   display: flex;

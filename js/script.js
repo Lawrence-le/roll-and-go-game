@@ -153,10 +153,10 @@ const handleName2 = () => {
 
 const submitButtons = () => {
   if (game.players[0].Name !== "") {
-    submitPlayer1Button.style.backgroundColor = "#8045a0";
+    submitPlayer1Button.style.backgroundColor = "#76448A";
   }
   if (game.players[1].Name !== "") {
-    submitPlayer2Button.style.backgroundColor = "#8045a0";
+    submitPlayer2Button.style.backgroundColor = "#76448A";
   }
 };
 
@@ -167,8 +167,8 @@ const submitButtons = () => {
 const startGame = () => {
   if (game.players[1].Name === "" || game.players[0].Name === "") {
     startPrompt.textContent = "Please submit all names to START GAME";
-    startPrompt.style.color = "Purple";
-    startPrompt.style.fontWeight = "Bold";
+    startPrompt.style.color = "#1C2833";
+    startPrompt.style.fontWeight = "";
   } else {
     gamePageRollContainer.style.display = "flex";
     landingPageContainer.style.display = "none";
