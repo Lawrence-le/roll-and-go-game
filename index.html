@@ -57,7 +57,7 @@
         <div class="playerName", id="player1Name"></div>
         <div class="playerName", id="player2Name"></div>
       </div> -->
-      <div id="gameBoardContainer">
+      <section id="gameBoardContainer">
         <div id="grid-container">
           <div id="grid-item-1" class="grid-item-fixed">1</div>
           <div id="grid-item-2" class="grid-item-fixed">2</div>
@@ -143,31 +143,35 @@
           <div id="markerPlayer1" class="markerPlayer1"></div>
           <div id="markerPlayer2" class="markerPlayer2"></div>
         </div>
-      </div>
-      <div id="gameMessage"></div>
-      <div id="diceRolled"></div>
-      <div id="gamePageDashboardContainer">
-        <!-- container Name Start-->
-        <div class="flexItemDashBoard">
-          <div id="player1Name"></div>
-          <div class="playerNameLabel1">Player 1</div>
-        </div>
-        <!-- container Name End-->
-                 <div class="flexItemDashBoard"></div>
-        <div class="flexItemDashBoard" id="diceResultP1round1"></div>
-        <div class="flexItemDashBoard" id="diceResultP1round2"></div>
-        <div class="flexItemDashBoard" id="triangleLeft"><img src="css/assets-game/arrow-left.png" alt="arrow left" width="40px" /></div>
-        <div class="flexItemDashBoard"><button id="rollDice"></button></div>
-        <div class="flexItemDashBoard" id="triangleRight"><img src="css/assets-game/arrow-right.png" alt="arrow right" width="40px" /></div>
-        <div class="flexItemDashBoard" id="diceResultP2round2"></div>
-        <div class="flexItemDashBoard" id="diceResultP2round1"></div>
-        <!-- container Name Start-->
-        <div class="flexItemDashBoard">
-          <div id="player2Name"></div>
-          <div class="playerNameLabel2">Player 2</div>
-        </div> 
-        <!-- container Name End-->
-      </div>
+      </section>
+        <div id="gameMessage">GAME Message</div>
+
+        <!-- <div id="diceRolled">#DICE</div> -->
+
+
+      <section id="gamePageDashboardContainer">
+                <section class = "playerIcon">
+        <div id="p1Icon"></div>
+        <div id="p2Icon"></div>
+                 </section>
+              <section class="playerLabelContainer">
+        <div class="playerLabelContainer" id="playerNameLabel1">Player 1</div>
+        <div class="playerLabelContainer" id="playerNameLabel2">Player 2</div>
+      </section>
+      
+        <section class="flexItemDashBoard">
+          <!-- <div class="flexItemDashBoard" id="p2Icon"></div> -->
+          <div class="flexItemDashBoard" id="player1Name"></div>
+          <div class="flexItemDashBoard" id="diceResultP1round1"></div>
+          <div class="flexItemDashBoard" id="diceResultP1round2"></div>
+          <div class="flexItemDashBoard" id="triangleLeft"><img src="css/assets-game/arrow-left.png" alt="arrow left" width="30px" height="30px" /></div>
+          <div class="flexItemDashBoard"><button id="rollDice"></button></div>
+          <div class="flexItemDashBoard" id="triangleRight"><img src="css/assets-game/arrow-right.png" alt="arrow right" width="30px" height="30px"/></div>
+          <div class="flexItemDashBoard" id="diceResultP2round2"></div>
+          <div class="flexItemDashBoard" id="diceResultP2round1"></div>
+          <div class="flexItemDashBoard" id="player2Name"></div>
+        </section>
+      </section>
     </section>
     <section id="diceRolledContainer">
       <div id="diceRolledTotal"></div>
@@ -176,6 +180,7 @@
       <div id="currentPositionP1"></div>
       <div id="currentPositionP2"></div>
     </section>
+    
   </body>
   <script defer src="./js/script.js"></script>
 </html>

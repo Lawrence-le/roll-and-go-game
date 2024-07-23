@@ -68,6 +68,55 @@ const render = () => {
   diceRolledTotalAnimationOn();
 };
 
+const renderClearPlayerRolls = () => {
+  diceResultP1round1.textContent = "";
+  diceResultP1round2.textContent = "";
+  diceResultP2round1.textContent = "";
+  diceResultP2round2.textContent = "";
+};
+
+// renderPlayerTurn render player turn symbol (arrow) on the webpage
+const renderPlayerTurn = () => {
+  triangleLeft.style.visibility = "visible";
+  triangleRight.style.visibility = "hidden";
+  renderClearPlayerRolls();
+  console.log("Render Turn Symbol");
+  if (game.playerTurn === 1) {
+    triangleRight.style.visibility = "hidden";
+  } else {
+    triangleLeft.style.visibility = "hidden";
+    triangleRight.style.visibility = "visible";
+  }
+};
+
+//ref https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+//ref https://medium.com/@belloquadriolawale/the-getboundingclientrect-method-5cd13e206bcf
+
+//renderPlayer1Markers, marker of player 1 is moved here
+
+const renderPlayer1Markers = (position) => {
+  if (position > gridItems.length) {
+    position = gridItems.length;
+  }
+  const targetGridItem = document.getElementById(`grid-item-${position}`);
+  const target = targetGridItem.getBoundingClientRect();
+  // markerPlayer1.style.transition = `linear all .5s`;
+  markerPlayer1.style.left = `${target.left}px`;
+  markerPlayer1.style.top = `${target.top - 8}px`;
+};
+
+//renderPlayer2Markers, marker of player 2 is moved here
+
+const renderPlayer2Markers = (position) => {
+  if (position > gridItems.length) {
+    position = gridItems.length;
+  }
+  const targetGridItem = document.getElementById(`grid-item-${position}`);
+  const target = targetGridItem.getBoundingClientRect();
+  markerPlayer2.style.left = `${target.left + 10}px`;
+  markerPlayer2.style.top = `${target.top - 5}px`;
+};
+
 // /_-------------- Functions -------------_/
 // handleName1, handleName2 function controls:
 // 1. Check that all names are submitted. If empty string submitted, user will be prompt to enter names.
@@ -137,12 +186,15 @@ const playerTurn = () => {
   } else {
     game.playerTurn = 1;
   }
+  // renderClearPlayerRolls();
   checkWinner();
 };
 
 // rollDice function roll dice twice and record the total number in rollTotal
 
 const rollDice = () => {
+  console.log("PLAYERTURN", game.playerTurn);
+
   rollCounter += 1;
   const rolledNum = Math.floor(Math.random() * 6) + 1;
 
@@ -150,23 +202,31 @@ const rollDice = () => {
   if (rollCounter === 1) {
     console.log(`Now is Player ${game.playerTurn} turn to roll dice`);
     game.rollNum[0] = rolledNum;
-    document.getElementById(
-      "diceRolled"
-    ).textContent = `1st Roll: ${rolledNum}`;
-    diceResultP1round1.textContent = rolledNum;
+    // document.getElementById(
+    //   "diceRolled"
+    // ).textContent = `1st Roll: ${rolledNum}`;
+    if (game.playerTurn === 1) {
+      diceResultP1round1.textContent = rolledNum;
+    } else {
+      diceResultP2round1.textContent = rolledNum;
+    }
 
     //! For Second Roll
   } else if (rollCounter === 2) {
     game.rollNum[1] = rolledNum;
-    document.getElementById(
-      "diceRolled"
-    ).textContent = `2nd Roll: ${rolledNum}`;
+    // document.getElementById(
+    //   "diceRolled"
+    // ).textContent = `2nd Roll: ${rolledNum}`;
     rollCounter = 0;
     rollTotal = 0;
     for (let i = 0; i < game.rollNum.length; i++) {
       rollTotal += game.rollNum[i];
     }
-    diceResultP1round2.textContent = rolledNum;
+    if (game.playerTurn === 1) {
+      diceResultP1round2.textContent = rolledNum;
+    } else {
+      diceResultP2round2.textContent = rolledNum;
+    }
     recordPlayerDice();
     // game.rollNum = ["", ""]; //reset rollNum after every 2 dice rolls.
     console.log(
@@ -219,19 +279,6 @@ const diceRolledTotalAnimationOff = () => {
   }, 500);
 };
 
-// renderPlayerTurn render player turn symbol (arrow) on the webpage
-const renderPlayerTurn = () => {
-  triangleLeft.style.visibility = "visible";
-  triangleRight.style.visibility = "hidden";
-  console.log("Render Turn Symbol");
-  if (game.playerTurn === 1) {
-    triangleRight.style.visibility = "hidden";
-  } else {
-    triangleLeft.style.visibility = "hidden";
-    triangleRight.style.visibility = "visible";
-  }
-};
-
 // recordPlayerDice records the total dice rolled and record in the current location key
 const recordPlayerDice = () => {
   if (game.playerTurn === 1) {
@@ -239,14 +286,14 @@ const recordPlayerDice = () => {
     game.players[0].currLocation += rollTotal; //2
     console.log("Player 1 Roll total:", game.players[0].diceRollTotal);
     console.log(game);
-    currentPositionP1.textContent = `Player 1, Curr Loc: ${game.players[0].currLocation} , Roll Total: ${rollTotal}`;
+    currentPositionP1.textContent = `Player 1, Location: ${game.players[0].currLocation} , Roll Total: ${rollTotal}`;
     console.log("Player 1 Move :", game.players[0].currLocation);
   } else if (game.playerTurn === 2) {
     game.players[1].diceRollTotal = rollTotal; //1
     game.players[1].currLocation += rollTotal; //2
     console.log("Player 2 Roll total:", game.players[1].diceRollTotal);
     console.log(game);
-    currentPositionP2.textContent = `Player 2 Curr Loc: ${game.players[1].currLocation} , Roll Total: ${rollTotal}`;
+    currentPositionP2.textContent = `Player 2 Location: ${game.players[1].currLocation} , Roll Total: ${rollTotal}`;
     console.log("Player 2 Move :", game.players[1].currLocation);
   }
   rollButton.disabled = true;
@@ -270,34 +317,6 @@ const checkWinner = () => {
     moveMarkers();
     // console.log("NO WINNER YET");
   }
-};
-
-//ref https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
-//ref https://medium.com/@belloquadriolawale/the-getboundingclientrect-method-5cd13e206bcf
-
-//renderPlayer1Markers, marker of player 1 is moved here
-
-const renderPlayer1Markers = (position) => {
-  if (position > gridItems.length) {
-    position = gridItems.length;
-  }
-  const targetGridItem = document.getElementById(`grid-item-${position}`);
-  const target = targetGridItem.getBoundingClientRect();
-  // markerPlayer1.style.transition = `linear all .5s`;
-  markerPlayer1.style.left = `${target.left}px`;
-  markerPlayer1.style.top = `${target.top - 8}px`;
-};
-
-//renderPlayer2Markers, marker of player 2 is moved here
-
-const renderPlayer2Markers = (position) => {
-  if (position > gridItems.length) {
-    position = gridItems.length;
-  }
-  const targetGridItem = document.getElementById(`grid-item-${position}`);
-  const target = targetGridItem.getBoundingClientRect();
-  markerPlayer2.style.left = `${target.left + 10}px`;
-  markerPlayer2.style.top = `${target.top - 5}px`;
 };
 
 //moveMarker, determine when to move the marker
@@ -453,7 +472,7 @@ const applyStylesToGridItems = (balloonIcon, bombIcon) => {
     if (element) {
       element.style.background = balloonIcon;
       element.style.backgroundSize = "35px 35px";
-      element.style.backgroundColor = "#2C3E50 ";
+      element.style.backgroundColor = "white ";
       element.style.color = "transparent";
     }
   });

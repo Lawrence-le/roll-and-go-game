@@ -142,7 +142,10 @@ flowchart TB
 <a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by Freepik - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/location-marker" title="location marker icons">Location marker icons created by Earthz Stocker - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/location-marker" title="location marker icons">Location marker icons created by Earthz Stocker - Flaticon</a>.
+<a href="https://www.flaticon.com/free-icons/dual-trigger-insurance" title="dual trigger insurance icons">Dual trigger insurance icons created by vectorsmarket15 - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Smashicons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Freepik - Flaticon</a>
 
 Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=39222">Pixabay</a>
 

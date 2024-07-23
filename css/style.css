@@ -142,14 +142,14 @@ h3 {
 }
 
 #gamePageDashboardContainer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* align-items: center; */
+  /* font-weight: bold; */
+  /* justify-content: center; */
   padding: 0.5rem 0;
   width: 100%;
-  font-weight: bold;
   background-color: #ff995e;
-  justify-content: center;
 }
 #startGame:hover {
   background-color: #8045a0;
@@ -165,6 +165,7 @@ h3 {
 .flexItemDashBoard {
   display: flex;
   background-color: lightblue;
+  align-items: center;
 }
 /* ref https://www.geeksforgeeks.org/how-to-set-the-size-of-specific-flex-item-using-css/*/
 
@@ -174,26 +175,37 @@ h3 {
 }
 .flexItemDashBoard:nth-child(9) {
   flex-grow: 3;
-  justify-content: flex-end;
   /* Set the size of the third flex item */
+  justify-content: flex-end;
 }
+
 #gamePageDashName1 {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: left;
 }
 #gamePageDashName2 {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 }
-.playerNameLabel1 {
-  font-size: 1em;
+
+.playerLabelContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: yellow;
+  font-weight: bold;
 }
-.playerNameLabel2 {
+
+#playerNameLabel1 {
   font-size: 1em;
-  margin-left: auto;
+  justify-content: space-evenly;
+  background-color: pink;
+  font-weight: "bold";
+}
+#playerNameLabel2 {
+  font-size: 1em;
+  justify-content: space-evenly;
+  background-color: yellow;
 }
 
 #player1Name {
@@ -207,7 +219,7 @@ h3 {
 
 #diceRolledContainer {
   position: absolute;
-  top: 20%;
+  top: 40vh;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
@@ -269,31 +281,56 @@ h3 {
   font-size: 0.8rem;
   height: 1.5rem;
 }
+
+.playerIcon {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#p1Icon {
+  background: url("assets-game/p1-flag.png") no-repeat center center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  transform: scale(1);
+  justify-content: flex-start;
+}
+
+#p2Icon {
+  background: url("assets-game/p2-flag.png") no-repeat center center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  transform: scale(1);
+  justify-content: flex-end;
+}
+
 #diceResultP1round1 {
-  align-items: flex-start;
-  width: 35px;
+  /* align-items: flex-start; */
+  width: 40px;
   height: 35px;
   background-size: cover;
   font-size: 2em;
   align-items: center;
 }
 #diceResultP1round2 {
-  text-align: center;
-  width: 35px;
+  width: 40px;
   height: 35px;
   background-size: cover;
   font-size: 2em;
   align-items: center;
 }
 #diceResultP2round1 {
-  width: 35px;
+  width: 40px;
   height: 35px;
   background-size: cover;
   font-size: 2em;
   align-items: center;
 }
 #diceResultP2round2 {
-  width: 35px;
+  width: 40px;
   height: 35px;
   background-size: cover;
   font-size: 2em;
@@ -303,6 +340,7 @@ h3 {
 #currentPositionP1,
 #currentPositionP2 {
   font-size: 0.8rem;
+  padding-left: 2rem;
 }
 
 #triangleLeft {
@@ -311,6 +349,7 @@ h3 {
 }
 #triangleRight {
   padding-left: 0.5rem;
+  padding-right: 0.5rem;
   transition: opacity 5s ease-in;
 }
 /* https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/ */
