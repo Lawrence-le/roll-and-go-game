@@ -127,6 +127,15 @@ flowchart TB
 
 ### Game Assets Attribution
 
+<a href="https://www.flaticon.com/free-icons/finish" title="finish icons">Finish icons created by Good Ware - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/start-button" title="start button icons">Start button icons created by Good Ware - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/medal" title="medal icons">Medal icons created by Vectors Market - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by KP Arts - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/grenade" title="grenade icons">Grenade icons created by Flat Icons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by max.icons - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/forward" title="forward icons">Forward icons created by meaicon - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/up-chevron" title="up chevron icons">Up chevron icons created by Pixel perfect - Flaticon</a>
 <a href="https://www.flaticon.com/free-icons/chest" title="chest icons">Chest icons created by Freepik - Flaticon</a>
 <br>
 <a href="https://www.flaticon.com/free-icons/award" title="award icons">Award icons created by Freepik - Flaticon</a>

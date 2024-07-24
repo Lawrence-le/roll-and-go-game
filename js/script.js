@@ -12,6 +12,8 @@ const game = {
   gridItems: {
     balloon: [19, 28, 55, 65],
     bomb: [8, 35, 56, 78],
+    nuclearBomb: [80],
+    grenade: [16, 24, 50, 76],
   },
   playerTurn: 1,
   rollNum: ["", ""],
@@ -22,6 +24,7 @@ let rollTotal = 0;
 
 // board = {};
 
+const resetButton = document.getElementById("resetGame");
 const gamePageRoll = document.getElementById("gamePageRollContainer");
 const landingPage = document.getElementById("landingPageContainer");
 const startGameButton = document.getElementById("startGame");
@@ -40,46 +43,82 @@ const markerPlayer2 = document.getElementById("markerPlayer2");
 const gridItems = document.querySelectorAll(".grid-item-fixed");
 const currentPositionP1 = document.getElementById("currentPositionP1");
 const currentPositionP2 = document.getElementById("currentPositionP2");
-const gameMessage = document.getElementById("gameMessage");
+const gameMessageA = document.getElementById("gameMessageA");
 const diceResultP1round1 = document.getElementById("diceResultP1round1");
 const diceResultP1round2 = document.getElementById("diceResultP1round2");
 const diceResultP2round1 = document.getElementById("diceResultP2round1");
 const diceResultP2round2 = document.getElementById("diceResultP2round2");
+const markerPlayer1Win = document.getElementById("markerPlayer1Win");
+const markerPlayer2Win = document.getElementById("markerPlayer2Win");
 
 // /_---------- Render Functions ---------_/
 // Initialisation of the game loading page.
 
 const init = () => {
-  //without loading page
+  // without loading page
   // gamePageRollContainer.style.display = "flex";
   // landingPageContainer.style.display = "none";
   // diceRolledContainer.style.display = "none";
+  // markerPlayer1Win.style.display = "none";
+  // markerPlayer2Win.style.display = "none";
 
   gamePageRollContainer.style.display = "none";
   landingPageContainer.style.display = "flex";
   diceRolledContainer.style.display = "none";
+  markerPlayer1Win.style.display = "none";
+  markerPlayer2Win.style.display = "none";
 
   renderPlayerTurn();
   moveMarkers();
 };
-
 const render = () => {
   recordPlayerDice();
   diceRolledTotalAnimationOn();
 };
 
-const renderClearPlayerRolls = () => {
+const resetGame = () => {
+  // Reset game state
+  game.players = [
+    { Name: "", currLocation: 1, diceRollTotal: 0 },
+    { Name: "", currLocation: 1, diceRollTotal: 0 },
+  ];
+  game.playerTurn = 1;
+  game.rollNum = ["", ""];
+  rollCounter = 0;
+  rollTotal = 0;
+
+  greetingPlayer1.textContent = "";
+  greetingPlayer2.textContent = "";
   diceResultP1round1.textContent = "";
   diceResultP1round2.textContent = "";
   diceResultP2round1.textContent = "";
   diceResultP2round2.textContent = "";
+  gameMessageA.textContent = "";
+  gameMessageB.textContent = "";
+  currentPositionP1.textContent = "";
+  currentPositionP2.textContent = "";
+
+  markerPlayer1Win.style.display = "none";
+  markerPlayer2Win.style.display = "none";
+
+  submitPlayer1Button.style.backgroundColor = "";
+  submitPlayer2Button.style.backgroundColor = "";
+
+  moveMarkers();
+
+  landingPageContainer.style.display = "flex";
+  gamePageRollContainer.style.display = "none";
+  diceRolledContainer.style.display = "none";
+
+  rollButton.disabled = false;
+
+  console.log("Game has been reset");
 };
 
 // renderPlayerTurn render player turn symbol (arrow) on the webpage
 const renderPlayerTurn = () => {
   triangleLeft.style.visibility = "visible";
   triangleRight.style.visibility = "hidden";
-  renderClearPlayerRolls();
   console.log("Render Turn Symbol");
   if (game.playerTurn === 1) {
     triangleRight.style.visibility = "hidden";
@@ -101,8 +140,10 @@ const renderPlayer1Markers = (position) => {
   const targetGridItem = document.getElementById(`grid-item-${position}`);
   const target = targetGridItem.getBoundingClientRect();
   // markerPlayer1.style.transition = `linear all .5s`;
-  markerPlayer1.style.left = `${target.left}px`;
+  markerPlayer1.style.left = `${target.left - 10}px`;
   markerPlayer1.style.top = `${target.top - 8}px`;
+  // currentPositionP1.innerHTML = `${game.players[0].currLocation}`;
+  currentPositionP1.innerHTML = position;
 };
 
 //renderPlayer2Markers, marker of player 2 is moved here
@@ -113,8 +154,60 @@ const renderPlayer2Markers = (position) => {
   }
   const targetGridItem = document.getElementById(`grid-item-${position}`);
   const target = targetGridItem.getBoundingClientRect();
-  markerPlayer2.style.left = `${target.left + 10}px`;
+  markerPlayer2.style.left = `${target.left + 6}px`;
   markerPlayer2.style.top = `${target.top - 5}px`;
+  currentPositionP2.innerHTML = position;
+};
+
+const renderWinner1 = () => {
+  const goTo = 41;
+  const targetGridItem = document.getElementById(`grid-item-${goTo}`);
+
+  if (targetGridItem) {
+    const target = targetGridItem.getBoundingClientRect();
+    markerPlayer1Win.classList.add("markerFadeIn");
+    setTimeout(() => {
+      markerPlayer1Win.style.display = "block";
+      markerPlayer1Win.classList.add("show");
+      markerPlayer1Win.style.transform = "scale(8)";
+      markerPlayer1Win.style.left = `${target.left}px`;
+      markerPlayer1Win.style.top = `${target.top}px`;
+    }, 300);
+  }
+};
+
+const renderWinner2 = () => {
+  const goTo = 41;
+  const targetGridItem = document.getElementById(`grid-item-${goTo}`);
+
+  if (targetGridItem) {
+    const target = targetGridItem.getBoundingClientRect();
+    markerPlayer2Win.classList.add("markerFadeIn");
+    setTimeout(() => {
+      markerPlayer2Win.style.display = "block";
+      markerPlayer2Win.classList.add("show");
+      markerPlayer2Win.style.transform = "scale(8)";
+      markerPlayer2Win.style.left = `${target.left + 6}px`;
+      markerPlayer2Win.style.top = `${target.top - 5}px`;
+    }, 300);
+  }
+};
+
+const renderClearPlayerRolls = () => {
+  if (
+    game.players[0].currLocation === 1 &&
+    game.players[1].currLocation === 1
+  ) {
+    console.log("nothing to clear");
+  } else if (game.playerTurn === 1) {
+    diceResultP1round1.textContent = "";
+    diceResultP1round2.textContent = "";
+    console.log("clear player 1 dice");
+  } else {
+    diceResultP2round1.textContent = "";
+    diceResultP2round2.textContent = "";
+    console.log("clear player 2 dice");
+  }
 };
 
 // /_-------------- Functions -------------_/
@@ -167,11 +260,11 @@ const submitButtons = () => {
 const startGame = () => {
   if (game.players[1].Name === "" || game.players[0].Name === "") {
     startPrompt.textContent = "Please submit all names to START GAME";
-    startPrompt.style.color = "#1C2833";
     startPrompt.style.fontWeight = "";
   } else {
     gamePageRollContainer.style.display = "flex";
     landingPageContainer.style.display = "none";
+    gameMessageA.textContent = `<- ${game.players[0].Name} Start Rolling`;
   }
   checkWinner();
   console.log(game); // check if game object has logged the names
@@ -181,20 +274,21 @@ const startGame = () => {
 
 const playerTurn = () => {
   checkGridItems();
+
   if (game.playerTurn === 1) {
     game.playerTurn = 2;
+    console.log("PLAYERTURN", game.playerTurn);
   } else {
     game.playerTurn = 1;
+    console.log("PLAYERTURN", game.playerTurn);
   }
-  // renderClearPlayerRolls();
   checkWinner();
 };
 
 // rollDice function roll dice twice and record the total number in rollTotal
 
 const rollDice = () => {
-  console.log("PLAYERTURN", game.playerTurn);
-
+  gameMessageB.textContent = "";
   rollCounter += 1;
   const rolledNum = Math.floor(Math.random() * 6) + 1;
 
@@ -202,9 +296,6 @@ const rollDice = () => {
   if (rollCounter === 1) {
     console.log(`Now is Player ${game.playerTurn} turn to roll dice`);
     game.rollNum[0] = rolledNum;
-    // document.getElementById(
-    //   "diceRolled"
-    // ).textContent = `1st Roll: ${rolledNum}`;
     if (game.playerTurn === 1) {
       diceResultP1round1.textContent = rolledNum;
     } else {
@@ -214,9 +305,6 @@ const rollDice = () => {
     //! For Second Roll
   } else if (rollCounter === 2) {
     game.rollNum[1] = rolledNum;
-    // document.getElementById(
-    //   "diceRolled"
-    // ).textContent = `2nd Roll: ${rolledNum}`;
     rollCounter = 0;
     rollTotal = 0;
     for (let i = 0; i < game.rollNum.length; i++) {
@@ -227,14 +315,15 @@ const rollDice = () => {
     } else {
       diceResultP2round2.textContent = rolledNum;
     }
+
     recordPlayerDice();
     // game.rollNum = ["", ""]; //reset rollNum after every 2 dice rolls.
-    console.log(
-      `END OF DICE ROLL | Player 1 Rolled Total ${game.players[0].diceRollTotal}`
-    );
-    console.log(
-      `END OF DICE ROLL | Player 2 Rolled Total ${game.players[1].diceRollTotal}`
-    );
+    // console.log(
+    //   `END OF DICE ROLL | Player 1 Rolled Total ${game.players[0].diceRollTotal}`
+    // );
+    // console.log(
+    //   `END OF DICE ROLL | Player 2 Rolled Total ${game.players[1].diceRollTotal}`
+    // );
   }
 };
 
@@ -272,11 +361,18 @@ const diceRolledTotalAnimationOff = () => {
         console.log("disabled");
 
         renderPlayerTurn();
+
+        if (game.playerTurn === 1) {
+          gameMessageA.textContent = `<- ${game.players[0].Name} Your Turn to Roll`; // remove the previous player game message
+          gameMessageA.style.color = "#ebedef";
+        } else {
+          gameMessageA.textContent = `${game.players[1].Name} Your Turn to Roll ->`;
+          gameMessageA.style.color = "#ebedef";
+        }
       }
     }, 400);
-
-    // renderPlayerTurn();
   }, 500);
+  renderClearPlayerRolls();
 };
 
 // recordPlayerDice records the total dice rolled and record in the current location key
@@ -286,14 +382,12 @@ const recordPlayerDice = () => {
     game.players[0].currLocation += rollTotal; //2
     console.log("Player 1 Roll total:", game.players[0].diceRollTotal);
     console.log(game);
-    currentPositionP1.textContent = `Player 1, Location: ${game.players[0].currLocation} , Roll Total: ${rollTotal}`;
     console.log("Player 1 Move :", game.players[0].currLocation);
   } else if (game.playerTurn === 2) {
     game.players[1].diceRollTotal = rollTotal; //1
     game.players[1].currLocation += rollTotal; //2
     console.log("Player 2 Roll total:", game.players[1].diceRollTotal);
     console.log(game);
-    currentPositionP2.textContent = `Player 2 Location: ${game.players[1].currLocation} , Roll Total: ${rollTotal}`;
     console.log("Player 2 Move :", game.players[1].currLocation);
   }
   rollButton.disabled = true;
@@ -304,14 +398,16 @@ const recordPlayerDice = () => {
 const checkWinner = () => {
   // console.log(`CHECK WINNER OPERATING`);
   if (game.players[0].currLocation >= gridItems.length) {
-    console.log(`Player ${game.players[0].Name} wins!`);
-    gameMessage.textContent = `Player 1, ${game.players[0].Name} wins!`;
+    console.log(`Player 1, ${game.players[0].Name} wins!`);
+    gameMessageA.innerHTML = `Player 1, <strong> ${game.players[0].Name} </strong> Wins!`;
     moveMarkers();
+    renderWinner1();
     rollButton.disabled = true;
   } else if (game.players[1].currLocation >= gridItems.length) {
-    console.log(`Player ${game.players[1].Name} wins!`);
-    gameMessage.textContent = `Player 2, ${game.players[1].Name} wins!`;
+    console.log(`Player 2, ${game.players[1].Name} wins!`);
+    gameMessageA.innerHTML = `Player 2, <strong> ${game.players[1].Name} </strong> Wins!`;
     moveMarkers();
+    renderWinner2();
     rollButton.disabled = true;
   } else {
     moveMarkers();
@@ -352,27 +448,24 @@ const checkGridItems = () => {
             } else {
               currentPlayer.currLocation += 17;
             }
-            console.log(
-              `Player ${
-                currentPlayerIndex + 1
-              } hit a Balloon! at position ${position}! Moving to ${
-                currentPlayer.currLocation
-              }.`
-            );
-            gameMessage.textContent = `NICE, ${currentPlayer.Name} you got a Balloon Boost! Progress to grid ${currentPlayer.currLocation} `;
+            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, you got a Boost! Progress to ${currentPlayer.currLocation}`;
             console.log(`Location After Update: ${currentPlayer.currLocation}`);
             break;
           case "bomb": //! BOMB
             currentPlayer.currLocation -= 6;
-            console.log(
-              `Player ${
-                currentPlayerIndex + 1
-              } hit a BOMB! at position ${position}! Moving to ${
-                currentPlayer.currLocation
-              }.`
-            );
-            gameMessage.style.color = "red";
-            gameMessage.textContent = `Sorry ${currentPlayer.Name}, you stepped on a BOMB! Go BACK to grid ${currentPlayer.currLocation}`;
+            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, stepped on a BOMB! Back to grid ${currentPlayer.currLocation}`;
+            console.log(`Location After Update: ${currentPlayer.currLocation}`);
+            break;
+
+          case "nuclearBomb": //! NUCLEAR BOMB
+            currentPlayer.currLocation = 41;
+            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, stepped on a Nuclear BOMB! Back to grid ${currentPlayer.currLocation}`;
+            console.log(`Location After Update: ${currentPlayer.currLocation}`);
+            break;
+
+          case "grenade": //! GRENADE
+            currentPlayer.currLocation -= 3;
+            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, found a rigged Grenade! Back to grid ${currentPlayer.currLocation}`;
             console.log(`Location After Update: ${currentPlayer.currLocation}`);
             break;
         }
@@ -401,10 +494,15 @@ rollButton.addEventListener("click", () => {
   rollDice();
 });
 
+resetButton.addEventListener("click", () => {
+  resetGame();
+});
+
 //Noticing that afer window resizing the marker will misalign with gridItems therefore
 //we need to listen for moveMarker after every window resize to ensure the marker is aligned to the grid
 window.addEventListener("resize", () => {
-  moveMarkers();
+  // moveMarkers();
+  checkWinner();
   console.log("resizing browser");
 });
 
@@ -430,11 +528,11 @@ const getGridSize = (container, gridSystem) => {
 
 const numberOfColumns = getGridSize("#grid-container", "grid-template-columns");
 const totalGrid = numberOfColumns ** 2;
-const borderStyle = "4px solid white";
+const borderStyle = "5px solid #17202A";
 
 const applyWall = (borderStyle, totalGrid) => {
   for (let i = 1; i <= totalGrid; i++) {
-    if (i % Math.sqrt(totalGrid) !== 0) {
+    if (i % Math.sqrt(totalGrid) !== 0 && (i < 73 || i > 80)) {
       const item = `#grid-item-${i}`;
       const element = document.querySelector(item);
       if (element) {
@@ -452,7 +550,7 @@ applyWall(borderStyle, totalGrid);
 
 //============================== Apply Styles to Grid Items ==========================
 
-const applyStylesToGridItems = (balloonIcon, bombIcon) => {
+const applyStylesToGridItems = (balloonIcon, bombIcon, nuclearIcon) => {
   const balloonGridItemIds = [
     "grid-item-19",
     "grid-item-28",
@@ -467,12 +565,21 @@ const applyStylesToGridItems = (balloonIcon, bombIcon) => {
     "grid-item-78",
   ];
 
+  const nuclearGridItemIds = ["grid-item-80"];
+
+  const grenadeGridItemIds = [
+    "grid-item-16",
+    "grid-item-24",
+    "grid-item-50",
+    "grid-item-76",
+  ];
+
   balloonGridItemIds.forEach((id) => {
     const element = document.getElementById(id);
     if (element) {
       element.style.background = balloonIcon;
-      element.style.backgroundSize = "35px 35px";
-      element.style.backgroundColor = "white ";
+      element.style.backgroundSize = "30px 30px";
+      element.style.backgroundColor = "#03A9F4";
       element.style.color = "transparent";
     }
   });
@@ -482,7 +589,25 @@ const applyStylesToGridItems = (balloonIcon, bombIcon) => {
     if (element) {
       element.style.background = bombIcon;
       element.style.backgroundSize = "35px 35px";
-      element.style.backgroundColor = "#2C3E50 ";
+      element.style.backgroundColor = "#EF5350"; /*"#1C2833"*/
+      element.style.color = "transparent";
+    }
+  });
+  nuclearGridItemIds.forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.background = nuclearIcon;
+      element.style.backgroundSize = "30px 30px";
+      element.style.backgroundColor = "#CC0033";
+      element.style.color = "transparent";
+    }
+  });
+  grenadeGridItemIds.forEach((id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.style.background = grenadeIcon;
+      element.style.backgroundSize = "30px 30px";
+      element.style.backgroundColor = "";
       element.style.color = "transparent";
     }
   });
@@ -491,8 +616,12 @@ const applyStylesToGridItems = (balloonIcon, bombIcon) => {
 const balloonIcon =
   "url('css/assets-game/balloon.png') no-repeat center center";
 const bombIcon = "url('css/assets-game/bomb.png') no-repeat center center";
+const nuclearIcon =
+  "url('css/assets-game/nuclear-bomb.png') no-repeat center center";
+const grenadeIcon =
+  "url('css/assets-game/grenade.png') no-repeat center center";
 
-applyStylesToGridItems(balloonIcon, bombIcon);
+applyStylesToGridItems(balloonIcon, bombIcon, nuclearIcon, grenadeIcon);
 
 // ========================= TEST LOG ==========================
 console.log("PlayerTurn Now is:", game.playerTurn); // Output: 9

@@ -5,184 +5,222 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Roll and Go!</title>
     <link rel="stylesheet" href="./css/style.css" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Lobster&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <section id="pageBorder">
-      <header id="gameTitle">
-        <h1>Roll and Go!</h1>
+      <header class="gameTitleNav" id="gameTitleContainer">
+        <div class="gameTitleNav" id="resetGameSpace"></div>
+        <h1 class="gameTitleNav" id="gameTitleNav">Roll and Go!</h1>
+        <button class="gameTitleNav" id="resetGame"></button>
       </header>
 
-
-<!-- ======================= Landing Page ===================== -->
+      <!-- ======================= Landing Page ===================== -->
 
       <section id="landingPageContainer">
-      <h3 class="landingPageMessage">Enter Both Players' Name to Start Game!</h3>
-      <div id="diceLogo"></div>
-      <div class="playerNameContainer">
-        <div class="input-container">
-          <input
-            type="text"
-            id="player1NameInput"
-            class="input-field"
-            placeholder="Enter Player 1 Name"
-          />
+        <h3 class="landingPageMessage">
+          Enter Both Players' Name to Start Game!
+        </h3>
+        <div id="diceLogo"></div>
+        <div class="playerNameContainer">
+          <div id="p1Icon"></div>
+          <div class="input-container">
+            <input
+              type="text"
+              id="player1NameInput"
+              class="input-field"
+              placeholder="Enter Player 1 Name"
+            />
+          </div>
+          <div>
+            <button class="button" id="submitPlayer1">Submit</button>
+          </div>
         </div>
-        <div>
-          <button class="button" id="submitPlayer1">Submit</button>
+        <div class="greeting" id="greetingPlayer1"></div>
+        <div class="playerNameContainer">
+          <div id="p2Icon"></div>
+          <div class="input-container">
+            <input
+              type="text"
+              id="player2NameInput"
+              class="input-field"
+              placeholder="Enter Player 2 Name"
+            />
+          </div>
+          <div>
+            <button class="button" id="submitPlayer2">Submit</button>
+          </div>
         </div>
-      </div>
-      <div class="greeting" id="greetingPlayer1"></div>
-      <div class="playerNameContainer">
-        <div class="input-container">
-          <input
-            type="text"
-            id="player2NameInput"
-            class="input-field"
-            placeholder="Enter Player 2 Name"
-          />
-        </div>
-        <div>
-          <button class="button" id="submitPlayer2">Submit</button>
-        </div>
-      </div>
-      <div class="greeting" id="greetingPlayer2"></div>
-      <div><button class="button" id="startGame">Start Game</button></div>
-      <div id="startPrompt"></div>
-    </section>
-
-<!-- ======================= Game Page Roll ===================== -->
-
-    <section id="gamePageRollContainer">
-      <!-- <div id="gamePagePlayerNameContainer">
-        <div class="playerName", id="player1Name"></div>
-        <div class="playerName", id="player2Name"></div>
-      </div> -->
-      <section id="gameBoardContainer">
-        <div id="grid-container">
-          <div id="grid-item-1" class="grid-item-fixed">1</div>
-          <div id="grid-item-2" class="grid-item-fixed">2</div>
-          <div id="grid-item-3" class="grid-item-fixed">3</div>
-          <div id="grid-item-4" class="grid-item-fixed">4</div>
-          <div id="grid-item-5" class="grid-item-fixed">5</div>
-          <div id="grid-item-6" class="grid-item-fixed">6</div>
-          <div id="grid-item-7" class="grid-item-fixed">7</div>
-          <div id="grid-item-8" class="grid-item-fixed">8</div>
-          <div id="grid-item-9" class="grid-item-fixed">9</div>
-          <div id="grid-item-10" class="grid-item-fixed">10</div>
-          <div id="grid-item-11" class="grid-item-fixed">11</div>
-          <div id="grid-item-12" class="grid-item-fixed">12</div>
-          <div id="grid-item-13" class="grid-item-fixed">13</div>
-          <div id="grid-item-14" class="grid-item-fixed">14</div>
-          <div id="grid-item-15" class="grid-item-fixed">15</div>
-          <div id="grid-item-16" class="grid-item-fixed">16</div>
-          <div id="grid-item-17" class="grid-item-fixed">17</div>
-          <div id="grid-item-18" class="grid-item-fixed">18</div>
-          <div id="grid-item-19" class="grid-item-fixed">19</div>
-          <div id="grid-item-20" class="grid-item-fixed">20</div>
-          <div id="grid-item-21" class="grid-item-fixed">21</div>
-          <div id="grid-item-22" class="grid-item-fixed">22</div>
-          <div id="grid-item-23" class="grid-item-fixed">23</div>          
-          <div id="grid-item-24" class="grid-item-fixed">24</div>
-          <div id="grid-item-25" class="grid-item-fixed">25</div>
-          <div id="grid-item-26" class="grid-item-fixed">26</div>
-          <div id="grid-item-27" class="grid-item-fixed">27</div>
-          <div id="grid-item-28" class="grid-item-fixed">28</div>
-          <div id="grid-item-29" class="grid-item-fixed">29</div>
-          <div id="grid-item-30" class="grid-item-fixed">30</div>
-          <div id="grid-item-31" class="grid-item-fixed">31</div>
-          <div id="grid-item-32" class="grid-item-fixed">32</div>
-          <div id="grid-item-33" class="grid-item-fixed">33</div>
-          <div id="grid-item-34" class="grid-item-fixed">34</div>
-          <div id="grid-item-35" class="grid-item-fixed">35</div>
-          <div id="grid-item-36" class="grid-item-fixed">36</div>
-          <div id="grid-item-37" class="grid-item-fixed">37</div>
-          <div id="grid-item-38" class="grid-item-fixed">38</div>
-          <div id="grid-item-39" class="grid-item-fixed">39</div>
-          <div id="grid-item-40" class="grid-item-fixed">40</div>
-          <div id="grid-item-41" class="grid-item-fixed">41</div>
-          <div id="grid-item-42" class="grid-item-fixed">42</div>
-          <div id="grid-item-43" class="grid-item-fixed">43</div>
-          <div id="grid-item-44" class="grid-item-fixed">44</div>
-          <div id="grid-item-45" class="grid-item-fixed">45</div>
-          <div id="grid-item-46" class="grid-item-fixed">46</div>
-          <div id="grid-item-47" class="grid-item-fixed">47</div>
-          <div id="grid-item-48" class="grid-item-fixed">48</div>
-          <div id="grid-item-49" class="grid-item-fixed">49</div>
-          <div id="grid-item-50" class="grid-item-fixed">50</div>
-          <div id="grid-item-51" class="grid-item-fixed">51</div>
-          <div id="grid-item-52" class="grid-item-fixed">52</div>
-          <div id="grid-item-53" class="grid-item-fixed">53</div>
-          <div id="grid-item-54" class="grid-item-fixed">54</div>
-          <div id="grid-item-55" class="grid-item-fixed">55</div>
-          <div id="grid-item-56" class="grid-item-fixed">56</div>
-          <div id="grid-item-57" class="grid-item-fixed">57</div>
-          <div id="grid-item-58" class="grid-item-fixed">58</div>
-          <div id="grid-item-59" class="grid-item-fixed">59</div>
-          <div id="grid-item-60" class="grid-item-fixed">60</div>
-          <div id="grid-item-61" class="grid-item-fixed">61</div>
-          <div id="grid-item-62" class="grid-item-fixed">62</div>
-          <div id="grid-item-63" class="grid-item-fixed">63</div>
-          <div id="grid-item-64" class="grid-item-fixed">64</div>
-          <div id="grid-item-65" class="grid-item-fixed">65</div>
-          <div id="grid-item-66" class="grid-item-fixed">66</div>
-          <div id="grid-item-67" class="grid-item-fixed">67</div>
-          <div id="grid-item-68" class="grid-item-fixed">68</div>
-          <div id="grid-item-69" class="grid-item-fixed">69</div>
-          <div id="grid-item-70" class="grid-item-fixed">70</div>
-          <div id="grid-item-71" class="grid-item-fixed">71</div>
-          <div id="grid-item-72" class="grid-item-fixed">72</div>
-          <div id="grid-item-73" class="grid-item-fixed">73</div>
-          <div id="grid-item-74" class="grid-item-fixed">74</div>
-          <div id="grid-item-75" class="grid-item-fixed">75</div>
-          <div id="grid-item-76" class="grid-item-fixed">76</div>
-          <div id="grid-item-77" class="grid-item-fixed">77</div>
-          <div id="grid-item-78" class="grid-item-fixed">78</div>
-          <div id="grid-item-79" class="grid-item-fixed">79</div>
-          <div id="grid-item-80" class="grid-item-fixed">80</div>
-          <div id="grid-item-81" class="grid-item-fixed">81</div>
-          <div id="markerPlayer1" class="markerPlayer1"></div>
-          <div id="markerPlayer2" class="markerPlayer2"></div>
-        </div>
+        <div class="greeting" id="greetingPlayer2"></div>
+        <div><button class="button" id="startGame">Start Game</button></div>
+        <div id="startPrompt"></div>
       </section>
-        <div id="gameMessage">GAME Message</div>
 
-        <!-- <div id="diceRolled">#DICE</div> -->
+      <!-- ======================= Game Page Roll ===================== -->
 
+      <section id="gamePageRollContainer">
+        <section id="gameBoardContainer">
+          <div id="currentPositionP1"></div>
+          <div id="grid-container">
+            <div id="grid-item-1" class="grid-item-fixed">1</div>
+            <div id="grid-item-2" class="grid-item-fixed">2</div>
+            <div id="grid-item-3" class="grid-item-fixed">3</div>
+            <div id="grid-item-4" class="grid-item-fixed">4</div>
+            <div id="grid-item-5" class="grid-item-fixed">5</div>
+            <div id="grid-item-6" class="grid-item-fixed">6</div>
+            <div id="grid-item-7" class="grid-item-fixed">7</div>
+            <div id="grid-item-8" class="grid-item-fixed">8</div>
+            <div id="grid-item-9" class="grid-item-fixed">9</div>
+            <div id="grid-item-10" class="grid-item-fixed">10</div>
+            <div id="grid-item-11" class="grid-item-fixed">11</div>
+            <div id="grid-item-12" class="grid-item-fixed">12</div>
+            <div id="grid-item-13" class="grid-item-fixed">13</div>
+            <div id="grid-item-14" class="grid-item-fixed">14</div>
+            <div id="grid-item-15" class="grid-item-fixed">15</div>
+            <div id="grid-item-16" class="grid-item-fixed">16</div>
+            <div id="grid-item-17" class="grid-item-fixed">17</div>
+            <div id="grid-item-18" class="grid-item-fixed">18</div>
+            <div id="grid-item-19" class="grid-item-fixed">19</div>
+            <div id="grid-item-20" class="grid-item-fixed">20</div>
+            <div id="grid-item-21" class="grid-item-fixed">21</div>
+            <div id="grid-item-22" class="grid-item-fixed">22</div>
+            <div id="grid-item-23" class="grid-item-fixed">23</div>
+            <div id="grid-item-24" class="grid-item-fixed">24</div>
+            <div id="grid-item-25" class="grid-item-fixed">25</div>
+            <div id="grid-item-26" class="grid-item-fixed">26</div>
+            <div id="grid-item-27" class="grid-item-fixed">27</div>
+            <div id="grid-item-28" class="grid-item-fixed">28</div>
+            <div id="grid-item-29" class="grid-item-fixed">29</div>
+            <div id="grid-item-30" class="grid-item-fixed">30</div>
+            <div id="grid-item-31" class="grid-item-fixed">31</div>
+            <div id="grid-item-32" class="grid-item-fixed">32</div>
+            <div id="grid-item-33" class="grid-item-fixed">33</div>
+            <div id="grid-item-34" class="grid-item-fixed">34</div>
+            <div id="grid-item-35" class="grid-item-fixed">35</div>
+            <div id="grid-item-36" class="grid-item-fixed">36</div>
+            <div id="grid-item-37" class="grid-item-fixed">37</div>
+            <div id="grid-item-38" class="grid-item-fixed">38</div>
+            <div id="grid-item-39" class="grid-item-fixed">39</div>
+            <div id="grid-item-40" class="grid-item-fixed">40</div>
+            <div id="grid-item-41" class="grid-item-fixed">41</div>
+            <div id="grid-item-42" class="grid-item-fixed">42</div>
+            <div id="grid-item-43" class="grid-item-fixed">43</div>
+            <div id="grid-item-44" class="grid-item-fixed">44</div>
+            <div id="grid-item-45" class="grid-item-fixed">45</div>
+            <div id="grid-item-46" class="grid-item-fixed">46</div>
+            <div id="grid-item-47" class="grid-item-fixed">47</div>
+            <div id="grid-item-48" class="grid-item-fixed">48</div>
+            <div id="grid-item-49" class="grid-item-fixed">49</div>
+            <div id="grid-item-50" class="grid-item-fixed">50</div>
+            <div id="grid-item-51" class="grid-item-fixed">51</div>
+            <div id="grid-item-52" class="grid-item-fixed">52</div>
+            <div id="grid-item-53" class="grid-item-fixed">53</div>
+            <div id="grid-item-54" class="grid-item-fixed">54</div>
+            <div id="grid-item-55" class="grid-item-fixed">55</div>
+            <div id="grid-item-56" class="grid-item-fixed">56</div>
+            <div id="grid-item-57" class="grid-item-fixed">57</div>
+            <div id="grid-item-58" class="grid-item-fixed">58</div>
+            <div id="grid-item-59" class="grid-item-fixed">59</div>
+            <div id="grid-item-60" class="grid-item-fixed">60</div>
+            <div id="grid-item-61" class="grid-item-fixed">61</div>
+            <div id="grid-item-62" class="grid-item-fixed">62</div>
+            <div id="grid-item-63" class="grid-item-fixed">63</div>
+            <div id="grid-item-64" class="grid-item-fixed">64</div>
+            <div id="grid-item-65" class="grid-item-fixed">65</div>
+            <div id="grid-item-66" class="grid-item-fixed">66</div>
+            <div id="grid-item-67" class="grid-item-fixed">67</div>
+            <div id="grid-item-68" class="grid-item-fixed">68</div>
+            <div id="grid-item-69" class="grid-item-fixed">69</div>
+            <div id="grid-item-70" class="grid-item-fixed">70</div>
+            <div id="grid-item-71" class="grid-item-fixed">71</div>
+            <div id="grid-item-72" class="grid-item-fixed">72</div>
+            <div id="grid-item-73" class="grid-item-fixed">73</div>
+            <div id="grid-item-74" class="grid-item-fixed">74</div>
+            <div id="grid-item-75" class="grid-item-fixed">75</div>
+            <div id="grid-item-76" class="grid-item-fixed">76</div>
+            <div id="grid-item-77" class="grid-item-fixed">77</div>
+            <div id="grid-item-78" class="grid-item-fixed">78</div>
+            <div id="grid-item-79" class="grid-item-fixed">79</div>
+            <div id="grid-item-80" class="grid-item-fixed">80</div>
+            <div id="grid-item-81" class="grid-item-fixed">81</div>
+            <div id="markerPlayer1" class="markerPlayer1"></div>
+            <div id="markerPlayer2" class="markerPlayer2"></div>
+            <div id="markerPlayer1Win" class="markerPlayer1Win"></div>
+            <div id="markerPlayer2Win" class="markerPlayer2Win"></div>
+          </div>
+          <div id="currentPositionP2"></div>
+        </section>
+        <section id="gamePageDashboardContainer">
+          <section class="playerIcon">
+            <div id="p1Icon"></div>
+            <div id="gameMessageContainer">
+              <div id="gameMessageB"></div>
+            </div>
+            <div id="p2Icon"></div>
+          </section>
+          <section class="playerLabelContainer">
+            <div class="playerLabelContainer" id="playerNameLabel1">
+              Player 1
+            </div>
+            <div id="gameMessageA"></div>
+            <div class="playerLabelContainer" id="playerNameLabel2">
+              Player 2
+            </div>
+          </section>
 
-      <section id="gamePageDashboardContainer">
-                <section class = "playerIcon">
-        <div id="p1Icon"></div>
-        <div id="p2Icon"></div>
-                 </section>
-              <section class="playerLabelContainer">
-        <div class="playerLabelContainer" id="playerNameLabel1">Player 1</div>
-        <div class="playerLabelContainer" id="playerNameLabel2">Player 2</div>
-      </section>
-      
-        <section class="flexItemDashBoard">
-          <!-- <div class="flexItemDashBoard" id="p2Icon"></div> -->
-          <div class="flexItemDashBoard" id="player1Name"></div>
-          <div class="flexItemDashBoard" id="diceResultP1round1"></div>
-          <div class="flexItemDashBoard" id="diceResultP1round2"></div>
-          <div class="flexItemDashBoard" id="triangleLeft"><img src="css/assets-game/arrow-left.png" alt="arrow left" width="30px" height="30px" /></div>
-          <div class="flexItemDashBoard"><button id="rollDice"></button></div>
-          <div class="flexItemDashBoard" id="triangleRight"><img src="css/assets-game/arrow-right.png" alt="arrow right" width="30px" height="30px"/></div>
-          <div class="flexItemDashBoard" id="diceResultP2round2"></div>
-          <div class="flexItemDashBoard" id="diceResultP2round1"></div>
-          <div class="flexItemDashBoard" id="player2Name"></div>
+          <section class="flexItemDashBoard">
+            <div class="flexItemDashBoard" id="player1Name"></div>
+            <div class="flexItemDashBoard" id="diceResultP1round2"></div>
+            <div class="flexItemDashBoard" id="diceResultP1round1"></div>
+            <div class="flexItemDashBoard" id="triangleLeft">
+              <img
+                src="css/assets-game/arrow-left.png"
+                alt="arrow left"
+                width="30px"
+                height="30px"
+              />
+            </div>
+            <div class="flexItemDashBoard"><button id="rollDice"></button></div>
+            <div class="flexItemDashBoard" id="triangleRight">
+              <img
+                src="css/assets-game/arrow-right.png"
+                alt="arrow right"
+                width="30px"
+                height="30px"
+              />
+            </div>
+            <div class="flexItemDashBoard" id="diceResultP2round1"></div>
+            <div class="flexItemDashBoard" id="diceResultP2round2"></div>
+            <div class="flexItemDashBoard" id="player2Name"></div>
+          </section>
         </section>
       </section>
+      <section id="diceRolledContainer">
+        <div id="diceRolledTotal"></div>
+      </section>
+      <!-- <section id="currentPositionContainer">
+        <div id="currentPositionP1"></div>
+        <div id="currentPositionP2"></div>
+      </section> -->
     </section>
-    <section id="diceRolledContainer">
-      <div id="diceRolledTotal"></div>
-    </section>
-    <section>   
-      <div id="currentPositionP1"></div>
-      <div id="currentPositionP2"></div>
-    </section>
-    
   </body>
   <script defer src="./js/script.js"></script>
 </html>

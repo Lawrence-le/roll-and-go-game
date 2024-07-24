@@ -3,9 +3,10 @@
 }
 html,
 body {
-  /* max-width:100%; */
-  /* padding: 0; */
+  /* max-width: 100%; */
   /* overflow: hidden; */
+  margin-right: 2%;
+  margin-left: 2%;
   user-select: none;
 }
 
@@ -14,27 +15,69 @@ body {
   background-color: #f0f0f0;
   place-items: center;
   /* padding: 20px; */
-  margin-right: 2%;
-  margin-left: 2%;
 }
 
 #pageBorder {
-  background-color: #f8f9f9;
-  padding: 5px;
-  width: 100%;
-  height: 650px;
-  max-width: 700px;
-  margin: 5px auto;
+  background-color: #34495e;
+  padding: 1px;
+  width: 50rem;
+  height: 40rem;
+  max-width: 50rem;
+  max-width: 40rem;
+  margin: auto;
   border-radius: 20px; /* Using fixed value for better control */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional for better visualization */
 }
 .landingPageMessage {
+  font-size: 1.5em;
+  font-family: "Indie Flower", cursive, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   margin: 0;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
+  color: #ebedef;
 }
-#gameTitle {
+
+#gameTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#gameTitleNav {
+  display: flex;
   text-align: center;
+  justify-content: center;
+  width: 100%;
 }
+#resetGameSpace {
+  background: url("assets-game/reset.png") no-repeat center center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin-left: 2rem;
+  background: transparent;
+}
+#resetGame {
+  background: url("assets-game/reset.png") no-repeat center center;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  margin-right: 2rem;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 2em;
+  font-family: "Pacifico", cursive, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #ebedef;
+  margin: 1rem;
+}
+
 #landingPageContainer {
   /* background-color: pink; */
   display: flex;
@@ -44,26 +87,36 @@ body {
   gap: 1rem;
 }
 .playerNameContainer {
-  /* background-color: pink; */
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 0.5rem;
 }
-.input-container input {
+.input-container input,
+button {
+  font-family: "Indie Flower", cursive, sans-serif;
+  font-weight: 400;
+  font-style: normal;
   display: block;
   width: 100%;
   height: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   border: none;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); /* Horizontal, Vertical, Blur, Color */
 }
+.input-container input {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1em;
+  width: 20rem;
+}
 
 .button {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   display: inline-block;
-  background-color: #34495e;
+  background-color: #212f3d;
   color: #fff;
   text-decoration: none;
   border: none;
@@ -74,30 +127,36 @@ body {
 }
 #startGame {
   font-size: 2em;
-  background-color: #34495e;
+  background-color: #212f3d;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   border: none;
-  margin-bottom: 15px;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
 }
+#startPrompt,
 .greeting {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
   font-size: 1rem;
   height: 1.2rem;
-  color: rgb(50, 50, 50);
-  margin-bottom: 40px;
+  color: #ebedef;
+  margin-bottom: 2rem;
   height: 0.5em;
 }
 #diceLogo {
-  background: url("assets-game/dice-disabled.png") no-repeat center center;
+  background: url("assets-game/dice-logo.png") no-repeat center center;
   background-size: cover;
   width: 100px;
   height: 100px;
   transform: scale(1.5);
   z-index: 1;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  background-color: transparent;
 }
 
 /* ============================ Game Board ============================== */
@@ -113,55 +172,65 @@ body {
   justify-content: center;
   align-items: center;
   height: 100%;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 #grid-container {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   grid-template-rows: repeat(9, 1fr);
-  /* gap: 1px; */
-  width: 500px;
+  width: 400px;
   height: 400px;
-  /* background-color: black; */
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  border-radius: 15px;
+  border: 5px solid #17202a;
 }
 
 .grid-item-fixed {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
   display: flex;
-  justify-content: left;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   padding: 3px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  background-color: #a77bbf;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  font-size: 1rem;
   position: relative;
-  color: rgb(44, 44, 44);
+  color: #ebedef;
 }
 
 .grid-item-fixed:nth-child(odd) {
-  background-color: #ff995e;
-  /* border: 2px, #333; */
+  color: #ebedef;
+  background-color: #85929e;
+  color: black;
+  font-size: 1rem;
 }
 
-#gameMessage {
-  height: 1rem;
-  font-weight: bold;
+#gameMessageContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+#gameMessageA,
+#gameMessageB {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  color: #ebedef;
   font-size: 1em;
   text-align: center;
-  background-color: pink;
+  width: fit-content;
+  height: 23px;
+}
+#gameMessageB {
+  font-size: 0.9em;
+  color: #a569bd;
+  background-color: #212f3d;
 }
 
 #gamePageDashboardContainer {
-  /* display: flex; */
-  /* flex-direction: row; */
-  /* align-items: center; */
-  /* font-weight: bold; */
-  /* justify-content: center; */
-  /* padding: 0.5rem 0; */
   width: 100%;
-  background-color: #ff995e;
+  background-color: transparent;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }
 #startGame:hover {
   background-color: #633974;
@@ -172,12 +241,13 @@ body {
 }
 .button:active {
   box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
-  transform: translateY(7px);
+  transform: translateY(4px);
 }
 .flexItemDashBoard {
   display: flex;
-  background-color: lightblue;
+  background-color: transparent;
   align-items: center;
+  gap: 0.2rem;
 }
 /* ref https://www.geeksforgeeks.org/how-to-set-the-size-of-specific-flex-item-using-css/*/
 
@@ -204,41 +274,53 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: yellow;
-  font-weight: bold;
+  background-color: transparent;
+}
+
+#currentPositionP1,
+#currentPositionP2,
+.playerLabelContainer,
+#playerNameLabel1,
+#playerNameLabel2,
+#player1Name,
+#player2Name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  color: #ebedef;
 }
 
 #playerNameLabel1 {
   font-size: 1em;
   justify-content: space-evenly;
-  background-color: pink;
-  font-weight: "bold";
+  background-color: transparent;
 }
 #playerNameLabel2 {
   font-size: 1em;
   justify-content: space-evenly;
-  background-color: yellow;
+  background-color: transparent;
 }
 
 #player1Name {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: left;
   width: 10rem;
 }
 #player2Name {
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: right;
   width: 10rem;
 }
 
 #diceRolledContainer {
   position: absolute;
-  top: 40vh;
+  top: 21rem;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
-  font-size: 10em;
+  font-size: 15em;
   font-weight: bold;
+  color: white;
 }
 #diceButtonContainer {
   display: flex;
@@ -256,28 +338,31 @@ body {
   height: 50px;
   border: none;
   cursor: pointer;
+  box-shadow: none;
   padding: 0;
   background-color: transparent;
 }
 
 #rollDice:hover {
-  background: radial-gradient(circle, #8045a0 0%, #8045a0 50%, #fff 100%);
+  /* background: radial-gradient(circle, #8045a0 0%, #8045a0 50%, #fff 100%); */
   background: url("assets-game/dice.png") no-repeat center center;
   background-size: cover;
   transform: scale(0.9);
   border: none;
   cursor: pointer;
+  box-shadow: none;
   z-index: 1;
   background-color: transparent;
 }
 
 #rollDice:active {
-  background: radial-gradient(circle, #8045a0 0%, #8045a0 50%, #fff 100%);
+  /* background: radial-gradient(circle, #8045a0 0%, #8045a0 50%, #fff 100%); */
   background: url("assets-game/dice-active.png") no-repeat center center;
   background-size: cover;
   transform: scale(0.875);
   border: none;
   cursor: pointer;
+  box-shadow: none;
   z-index: 2;
   background-color: transparent;
 }
@@ -291,6 +376,15 @@ body {
   transform: scale(1);
   pointer-events: none;
 }
+
+#resetGame:hover {
+  transform: scale(0.9);
+}
+
+#resetGame:active {
+  transform: scale(0.8);
+}
+
 #diceRolled {
   font-size: 0.8rem;
   height: 1.5rem;
@@ -309,7 +403,8 @@ body {
   width: 30px;
   height: 30px;
   transform: scale(1);
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
+  /* justify-content: space-between; */
 }
 
 #p2Icon {
@@ -318,54 +413,78 @@ body {
   width: 30px;
   height: 30px;
   transform: scale(1);
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
+  /* justify-content: space-between; */
 }
 
-#diceResultP1round1 {
+#diceResultP1round1,
+#diceResultP1round2,
+#diceResultP2round1,
+#diceResultP2round2 {
   /* align-items: flex-start; */
   width: 40px;
   height: 35px;
   background-size: cover;
-  font-size: 2em;
+  font-size: 1.2em;
+  font-weight: bold;
   align-items: center;
-}
-#diceResultP1round2 {
-  width: 40px;
-  height: 35px;
-  background-size: cover;
-  font-size: 2em;
-  align-items: center;
-}
-#diceResultP2round1 {
-  width: 40px;
-  height: 35px;
-  background-size: cover;
-  font-size: 2em;
-  align-items: center;
-}
-#diceResultP2round2 {
-  width: 40px;
-  height: 35px;
-  background-size: cover;
-  font-size: 2em;
-  align-items: center;
+  justify-content: space-evenly;
+  color: #db4536;
+  padding: 1rem;
+  background-color: #212f3d;
 }
 
-#currentPositionP1,
+#diceResultP2round1,
+#diceResultP2round2 {
+  color: #387fc2;
+}
+
+#currentPositionContainer {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 0.7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#currentPositionP1 {
+  display: flex;
+  color: #eaecee;
+  width: 60px;
+  height: 60px;
+  font-size: 3em;
+  font-weight: bold;
+  color: #db4536;
+  /* background-color: #212f3d; */
+  padding-right: 1rem;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
 #currentPositionP2 {
-  font-size: 0.8rem;
-  padding-left: 2rem;
+  display: flex;
+  color: #eaecee;
+  width: 60px;
+  height: 60px;
+  font-size: 3em;
+  font-weight: bold;
+  color: #387fc2;
+  /* background-color: #212f3d; */
+  justify-content: flex-start;
+  padding-left: 1rem;
 }
 
 #triangleLeft {
   /* padding-right: 0.5rem; */
   padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  /* padding-right: 0.5rem; */
   transition: opacity 5s ease-in;
 }
 #triangleRight {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  /* padding-left: 0.5rem; */
+  padding-right: rem;
   transition: opacity 5s ease-in;
 }
 /* https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/ */
@@ -375,13 +494,13 @@ body {
     opacity: 0;
   }
   to {
-    opacity: 0.5;
+    opacity: 1;
   }
 }
 
 .fadeIn {
   animation: fadeIn 2s ease-out;
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .fadeOut {
@@ -398,6 +517,13 @@ https://www.w3schools.com/css/css_grid.asp
   grid-column: 1 / 2;
   grid-row: 9 / 10;
   border-radius: 0 0 0 10px;
+  background-color: #7d3c98;
+  color: white;
+  font-weight: bold;
+  background: url("assets-game/start.png") no-repeat center center;
+  background-size: 35px 35px;
+  background-color: #7d3c98;
+  color: transparent;
 }
 #grid-item-2 {
   grid-column: 2 / 3;
@@ -720,9 +846,9 @@ https://www.w3schools.com/css/css_grid.asp
 #grid-item-81 {
   grid-column: 9 / 10;
   grid-row: 1 / 2;
-  background: url("assets-game/cup.png") no-repeat center center;
+  background: url("assets-game/finish.png") no-repeat center center;
   background-size: 35px 35px;
-  background-color: white;
+  background-color: #7d3c98;
   color: transparent;
   border-radius: 0 10px 0 0;
 }
@@ -751,4 +877,39 @@ https://www.w3schools.com/css/css_grid.asp
   cursor: not-allowed;
   box-shadow: none;
   pointer-events: none;
+}
+
+.markerPlayer1Win {
+  position: absolute;
+  width: 37px;
+  height: 37px;
+  z-index: 10;
+
+  background: url("assets-game/p1-flag.png") no-repeat center center;
+  background-size: cover;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.markerPlayer2Win {
+  position: absolute;
+  width: 40px;
+  height: 34px;
+  z-index: 10;
+
+  background: url("assets-game/p2-flag.png") no-repeat center center;
+  background-size: cover;
+  cursor: not-allowed;
+  box-shadow: none;
+  pointer-events: none;
+}
+
+.markerFadeIn {
+  opacity: 0;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.markerFadeIn.show {
+  opacity: 1;
 }
