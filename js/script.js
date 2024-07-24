@@ -56,6 +56,7 @@ const markerPlayer2Win = document.getElementById("markerPlayer2Win");
 
 const init = () => {
   // without loading page
+
   // gamePageRollContainer.style.display = "flex";
   // landingPageContainer.style.display = "none";
   // diceRolledContainer.style.display = "none";
@@ -140,8 +141,8 @@ const renderPlayer1Markers = (position) => {
   const targetGridItem = document.getElementById(`grid-item-${position}`);
   const target = targetGridItem.getBoundingClientRect();
   // markerPlayer1.style.transition = `linear all .5s`;
-  markerPlayer1.style.left = `${target.left - 10}px`;
-  markerPlayer1.style.top = `${target.top - 8}px`;
+  markerPlayer1.style.left = `${target.left - 25}px`;
+  markerPlayer1.style.top = `${target.top - 20}px`;
   // currentPositionP1.innerHTML = `${game.players[0].currLocation}`;
   currentPositionP1.innerHTML = position;
 };
@@ -154,8 +155,8 @@ const renderPlayer2Markers = (position) => {
   }
   const targetGridItem = document.getElementById(`grid-item-${position}`);
   const target = targetGridItem.getBoundingClientRect();
-  markerPlayer2.style.left = `${target.left + 6}px`;
-  markerPlayer2.style.top = `${target.top - 5}px`;
+  markerPlayer2.style.left = `${target.left - 10}px`;
+  markerPlayer2.style.top = `${target.top - 18}px`;
   currentPositionP2.innerHTML = position;
 };
 
@@ -544,10 +545,6 @@ const applyWall = (borderStyle, totalGrid) => {
 
 applyWall(borderStyle, totalGrid);
 
-// const applyDiceResultPlayer1 = () => {
-//   if(row)
-// };
-
 //============================== Apply Styles to Grid Items ==========================
 
 const applyStylesToGridItems = (balloonIcon, bombIcon, nuclearIcon) => {
@@ -579,7 +576,7 @@ const applyStylesToGridItems = (balloonIcon, bombIcon, nuclearIcon) => {
     if (element) {
       element.style.background = balloonIcon;
       element.style.backgroundSize = "30px 30px";
-      element.style.backgroundColor = "#03A9F4";
+      element.style.backgroundColor = "";
       element.style.color = "transparent";
     }
   });
@@ -589,7 +586,7 @@ const applyStylesToGridItems = (balloonIcon, bombIcon, nuclearIcon) => {
     if (element) {
       element.style.background = bombIcon;
       element.style.backgroundSize = "35px 35px";
-      element.style.backgroundColor = "#EF5350"; /*"#1C2833"*/
+      element.style.backgroundColor = ""; /*"#1C2833"*/
       element.style.color = "transparent";
     }
   });
