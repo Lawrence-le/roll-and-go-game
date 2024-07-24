@@ -12,7 +12,7 @@ const game = {
   gridItems: {
     balloon: [19, 28, 55, 65],
     bomb: [8, 35, 56, 78],
-    nuclearBomb: [80],
+    nuclearBomb: [79],
     grenade: [16, 24, 50, 76],
   },
   playerTurn: 1,
@@ -140,10 +140,11 @@ const renderPlayer1Markers = (position) => {
   }
   const targetGridItem = document.getElementById(`grid-item-${position}`);
   const target = targetGridItem.getBoundingClientRect();
-  // markerPlayer1.style.transition = `linear all .5s`;
-  markerPlayer1.style.left = `${target.left - 25}px`;
-  markerPlayer1.style.top = `${target.top - 20}px`;
-  // currentPositionP1.innerHTML = `${game.players[0].currLocation}`;
+
+  // markerPlayer1.style.left = `${target.left - 25}px`;
+  // markerPlayer1.style.top = `${target.top - 20}px`;
+  markerPlayer1.style.left = `${target.left + window.scrollX - 25}px`;
+  markerPlayer1.style.top = `${target.top + window.scrollY - 20}px`;
   currentPositionP1.innerHTML = position;
 };
 
@@ -155,8 +156,10 @@ const renderPlayer2Markers = (position) => {
   }
   const targetGridItem = document.getElementById(`grid-item-${position}`);
   const target = targetGridItem.getBoundingClientRect();
-  markerPlayer2.style.left = `${target.left - 10}px`;
-  markerPlayer2.style.top = `${target.top - 18}px`;
+  const zoomFactor = window.devicePixelRatio || 1;
+
+  markerPlayer2.style.left = `${target.left + window.scrollX - 10}px`;
+  markerPlayer2.style.top = `${target.top + window.scrollY - 18}px`;
   currentPositionP2.innerHTML = position;
 };
 
@@ -170,9 +173,9 @@ const renderWinner1 = () => {
     setTimeout(() => {
       markerPlayer1Win.style.display = "block";
       markerPlayer1Win.classList.add("show");
-      markerPlayer1Win.style.transform = "scale(8)";
-      markerPlayer1Win.style.left = `${target.left}px`;
-      markerPlayer1Win.style.top = `${target.top}px`;
+      markerPlayer1Win.style.transform = "scale(6)";
+      markerPlayer1Win.style.left = `${target.left + window.scrollX}px`;
+      markerPlayer1Win.style.top = `${target.top + window.scrollY}px`;
     }, 300);
   }
 };
@@ -187,9 +190,9 @@ const renderWinner2 = () => {
     setTimeout(() => {
       markerPlayer2Win.style.display = "block";
       markerPlayer2Win.classList.add("show");
-      markerPlayer2Win.style.transform = "scale(8)";
-      markerPlayer2Win.style.left = `${target.left + 6}px`;
-      markerPlayer2Win.style.top = `${target.top - 5}px`;
+      markerPlayer2Win.style.transform = "scale(6)";
+      markerPlayer2Win.style.left = `${target.left + window.scrollX}px`;
+      markerPlayer2Win.style.top = `${target.top + window.scrollY}px`;
     }, 300);
   }
 };
@@ -562,7 +565,7 @@ const applyStylesToGridItems = (balloonIcon, bombIcon, nuclearIcon) => {
     "grid-item-78",
   ];
 
-  const nuclearGridItemIds = ["grid-item-80"];
+  const nuclearGridItemIds = ["grid-item-79"];
 
   const grenadeGridItemIds = [
     "grid-item-16",
