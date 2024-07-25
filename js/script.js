@@ -1,4 +1,7 @@
 console.log("TEST CONSOLE");
+// Test parameters (grid condition)
+// game.players[0].currLocation = 79;
+// game.players[1].currLocation = 79;
 
 // /_-------------- Constants -------------_/
 rollCounter = 0;
@@ -23,7 +26,9 @@ let rollTotal = 0;
 // /_----- Cached Element References -----_/
 
 // board = {};
-
+const rulesGameContainer = document.getElementById("rulesGameContainer");
+const rulesButton = document.getElementById("rulesGame");
+const closeRules = document.getElementById("closeRules");
 const resetButton = document.getElementById("resetGame");
 const gamePageRoll = document.getElementById("gamePageRollContainer");
 const landingPage = document.getElementById("landingPageContainer");
@@ -62,12 +67,14 @@ const init = () => {
   // diceRolledContainer.style.display = "none";
   // markerPlayer1Win.style.display = "none";
   // markerPlayer2Win.style.display = "none";
+  // rulesGameContainer.style.display = "block";
 
   gamePageRollContainer.style.display = "none";
   landingPageContainer.style.display = "flex";
   diceRolledContainer.style.display = "none";
   markerPlayer1Win.style.display = "none";
   markerPlayer2Win.style.display = "none";
+  rulesGameContainer.style.display = "none";
 
   renderPlayerTurn();
   moveMarkers();
@@ -99,17 +106,10 @@ const resetGame = () => {
   currentPositionP1.textContent = "";
   currentPositionP2.textContent = "";
 
-  markerPlayer1Win.style.display = "none";
-  markerPlayer2Win.style.display = "none";
-
   submitPlayer1Button.style.backgroundColor = "";
   submitPlayer2Button.style.backgroundColor = "";
 
-  moveMarkers();
-
-  landingPageContainer.style.display = "flex";
-  gamePageRollContainer.style.display = "none";
-  diceRolledContainer.style.display = "none";
+  init();
 
   rollButton.disabled = false;
 
@@ -437,6 +437,7 @@ const moveMarkers = () => {
 //checkGridItems, check for availability of grid items to apply
 
 const checkGridItems = () => {
+  // Convert playerTurn into currentPlayerIndex used for calling of the game objects
   const currentPlayerIndex = game.playerTurn - 1;
   const currentPlayer = game.players[currentPlayerIndex];
 
@@ -452,12 +453,17 @@ const checkGridItems = () => {
             } else {
               currentPlayer.currLocation += 17;
             }
-            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, you got a Boost! Progress to ${currentPlayer.currLocation}`;
+            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, 
+            you got a Boost! Progress to ${currentPlayer.currLocation}`;
+
             console.log(`Location After Update: ${currentPlayer.currLocation}`);
             break;
+
           case "bomb": //! BOMB
             currentPlayer.currLocation -= 6;
-            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, stepped on a BOMB! Back to grid ${currentPlayer.currLocation}`;
+            gameMessageB.innerHTML = `<strong>${currentPlayer.Name}<strong>, 
+            stepped on a BOMB! Back to grid ${currentPlayer.currLocation}`;
+
             console.log(`Location After Update: ${currentPlayer.currLocation}`);
             break;
 
@@ -500,6 +506,14 @@ rollButton.addEventListener("click", () => {
 
 resetButton.addEventListener("click", () => {
   resetGame();
+});
+
+rulesButton.addEventListener("click", () => {
+  rulesGameContainer.style.display = "block";
+});
+
+closeRules.addEventListener("click", () => {
+  rulesGameContainer.style.display = "none";
 });
 
 //Noticing that afer window resizing the marker will misalign with gridItems therefore

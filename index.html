@@ -29,7 +29,9 @@
     <section id="pageBorder">
       <header class="gameTitleNav" id="gameTitleContainer">
         <div class="gameTitleNav" id="resetGameSpace"></div>
+        <div class="gameTitleNav" id="resetGameSpace"></div>
         <h1 class="gameTitleNav" id="gameTitleNav">Roll and Go!</h1>
+        <button class="gameTitleNav" id="rulesGame"></button>
         <button class="gameTitleNav" id="resetGame"></button>
       </header>
 
@@ -214,12 +216,103 @@
           <section id="diceRolledContainer">
             <div id="diceRolledTotal"></div>
           </section>
+          <section id="rulesGameContainer">
+            <ul>
+              <h3>How to Play</h3>
+              <li>Input player 1 and 2 names. Push Start Game Button.</li>
+              <li>Player 1 roll dice 1st.</li>
+              <li>
+                Each Player has to roll dice twice by pushing the roll dice
+                button.
+                <img
+                  src="css/assets-game/dice.png"
+                  alt="roll-dice"
+                  width="20"
+                  height="20"
+                />
+              </li>
+              <li>
+                After the second dice roll, Player's' Flag will move to new grid
+                position.
+              </li>
+
+              <li>
+                The player's turn indicator switches to the next player.
+                <img
+                  src="css/assets-game/arrow-left.png"
+                  alt="arrow-left"
+                  width="20"
+                  height="20"
+                />
+                <img
+                  src="css/assets-game/arrow-right.png"
+                  alt="arrow-right"
+                  width="20"
+                  height="20"
+                />
+              </li>
+              <li>Result of each dice roll will be displayed.</li>
+              <li>
+                Grid Item will give (+) or (-) move for the player who lands
+                into the item grid.
+              </li>
+              <li>
+                The first player to reach the last grid wins the game.
+                <img
+                  src="css/assets-game/finish.png"
+                  alt="arrow-right"
+                  width="30"
+                  height="30"
+                />
+              </li>
+            </ul>
+            <ul id="ulBulletRemoved">
+              <h3>Grid Item Explained:</h3>
+              <li>
+                <img
+                  src="css/assets-game/balloon.png"
+                  alt="balloon"
+                  width="30"
+                  height="30"
+                />
+                <strong>Boost:</strong>
+                Move player to the grid directly above.
+              </li>
+              <li>
+                <img
+                  src="css/assets-game/bomb.png"
+                  alt="bomb"
+                  width="30"
+                  height="30"
+                />
+                <strong>Bomb:</strong>
+                Move player backward by 6 grid. (-6)
+              </li>
+              <li>
+                <img
+                  src="css/assets-game/grenade.png"
+                  alt="grenade"
+                  width="30"
+                  height="30"
+                />
+                <strong>Grenade:</strong>
+                Move player backward by 3 grid. (-3)
+              </li>
+              <li>
+                <img
+                  src="css/assets-game/nuclear-bomb.png"
+                  alt="nuclear-bomb"
+                  width="30"
+                  height="30"
+                />
+                <strong>Nuclear Bomb:</strong>
+                Move player back to grid 41. (-41)
+              </li>
+            </ul>
+            <button id="closeRules">CLOSE [X]</button>
+          </section>
         </section>
       </section>
-
-      <!-- <section id="diceRolledContainer">
-        <div id="diceRolledTotal"></div>
-      </section> -->
     </section>
   </body>
   <script defer src="./js/script.js"></script>

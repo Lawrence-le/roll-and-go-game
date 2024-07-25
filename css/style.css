@@ -8,11 +8,12 @@ body {
   margin-right: 2%;
   margin-left: 2%;
   user-select: none;
+  background-color: black;
 }
 
 body {
   font-family: sans-serif;
-  background-color: #f0f0f0;
+  background-color: #black;
   place-items: center;
   /* padding: 20px; */
 }
@@ -50,8 +51,6 @@ body {
   width: 100%;
 }
 #resetGameSpace {
-  background: url("assets-game/reset.png") no-repeat center center;
-  background-size: cover;
   width: 30px;
   height: 30px;
   margin-left: 2rem;
@@ -59,11 +58,49 @@ body {
 }
 #resetGame {
   background: url("assets-game/reset.png") no-repeat center center;
-  background-size: cover;
-  width: 30px;
+  width: 40px;
   height: 30px;
-  margin-right: 2rem;
-  border: none;
+  background-size: cover;
+  margin-right: 1rem;
+  /* background-color: #212f3d; */
+  box-shadow: none;
+  cursor: pointer;
+  color: #ebedef;
+  border-radius: 50%;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+#rulesGame {
+  background: url("assets-game/question.png") no-repeat center center;
+  width: 40px;
+  height: 30px;
+  background-size: cover;
+  margin-right: 1rem;
+  box-shadow: none;
+  cursor: pointer;
+  color: #ebedef;
+  background-color: transparent;
+}
+#rulesGameContainer {
+  font-family: "Indie Flower", cursive, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: block;
+  position: absolute;
+  top: -26rem;
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+  width: 95%;
+  background-color: #212f3d;
+  color: #ebedef;
+  z-index: 1000;
+}
+#ulBulletRemoved {
+  list-style: none;
+}
+#closeRules {
+  color: white;
+  font-size: 1.5rem;
+  width: 10rem;
   background-color: transparent;
   box-shadow: none;
   cursor: pointer;
@@ -93,6 +130,7 @@ h1 {
   align-items: center;
   gap: 0.5rem;
 }
+
 .input-container input,
 button {
   font-family: "Indie Flower", cursive, sans-serif;
@@ -383,6 +421,14 @@ button {
   transform: scale(0.8);
 }
 
+#rulesGame:hover {
+  transform: scale(0.9);
+}
+
+#rulesGame:active {
+  transform: scale(0.8);
+}
+
 .playerIcon {
   display: flex;
   flex-direction: row;
@@ -452,7 +498,6 @@ button {
   color: #db4536;
   padding-right: 1rem;
   justify-content: flex-end;
-  z-index: 1000;
 }
 
 #currentPositionP2 {

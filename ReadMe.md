@@ -16,11 +16,19 @@
 
 ## Game Description
 
-- This is a 2 player game that requires each player to roll the dice to determine how many moves they can make on the path. Who make it to the end of the path first wins the game.
+- Roll and Go is a re-make of the commonly known game, Snakes & Ladders.
+
+- This is a 2 player game that requires each player to roll the dice TWICE to determine how many moves they can make. Who make it to the last grid wins the game.
 
 ## How to play the Game
 
-- WIP
+![Game layout](howtoplay/howToPlay-01.png)
+![Game Rules](howtoplay/howToPlay-02.png)
+![Winner](howtoplay/howToPlay-03.png)
+
+## Technology used
+
+- Javascript, HTML, CSS
 
 ## User Stories
 
@@ -39,8 +47,8 @@
 ### (Stretch Goals - Not Mandatory)
 
 - Includes all features in MVP Release.
-- As a user, I could have a mystery item that provides boost to my character.
-- As a user, I could have a mystery item that gives a disadvantage to my opponent.
+- As a user, I could have item that provides boost to my character.
+- As a user, I could have item that gives a disadvantage to my opponent.
 
 ## Game Architecture
 
@@ -68,7 +76,25 @@ flowchart TB
 
 ### Game Page
 
-- WIP
+1. Game Page: The system display the game page
+2. Roll Dice 1: Player 1 starts rolling the 1st dice
+3. Screen display the 1st roll result
+4. Roll Dice 2: Player 1 roll 2nd dice
+5. Screen display the 2nd roll result
+6. Player turn indicator switch to second player
+7. Player landing onto respective grid item will be prompted
+8. Player reaches the last grid wins the game
+
+```mermaid
+flowchart TD
+    A[Game Page: The system displays the game page] --> B[Roll Dice 1: Player 1 starts rolling the 1st dice]
+    B --> C[Screen displays the 1st roll result]
+    C --> D[Roll Dice 2: Player 1 rolls the 2nd dice]
+    D --> E[Screen displays the 2nd roll result]
+    E --> F[Player turn indicator switches to second player]
+    F --> G[Player lands on respective grid item and is prompted]
+    G --> H[Player reaches the last grid and wins the game]
+```
 
 ## Wireframe
 
@@ -93,6 +119,24 @@ flowchart TB
 <br>
 
 /_-------------- Constants -------------_/
+
+```
+const game = {
+players: [
+{ Name: "", currLocation: 1, diceRollTotal: 0 },
+{ Name: "", currLocation: 1, diceRollTotal: 0 },
+],
+gridItems: {
+balloon: [19, 28, 55, 65],
+bomb: [8, 35, 56, 78],
+nuclearBomb: [79],
+grenade: [16, 24, 50, 76],
+},
+playerTurn: 1,
+rollNum: ["", ""],
+};
+let rollTotal = 0;
+```
 
 /_---------- Variables (state) ---------_/
 
@@ -127,18 +171,15 @@ flowchart TB
 
 ### Game Assets Attribution
 
-<a href="https://www.flaticon.com/free-icons/finish" title="finish icons">Finish icons created by Good Ware - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/start-button" title="start button icons">Start button icons created by Good Ware - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/medal" title="medal icons">Medal icons created by Vectors Market - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by KP Arts - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/grenade" title="grenade icons">Grenade icons created by Flat Icons - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by max.icons - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/forward" title="forward icons">Forward icons created by meaicon - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/finish" title="finish icons">Finish icons created by Good Ware - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/start-button" title="start button icons">Start button icons created by Good Ware - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/medal" title="medal icons">Medal icons created by Vectors Market - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/reset" title="reset icons">Reset icons created by KP Arts - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/grenade" title="grenade icons">Grenade icons created by Flat Icons - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by max.icons - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by Freepik - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/forward" title="forward icons">Forward icons created by meaicon - Flaticon</a><br>
 <a href="https://www.flaticon.com/free-icons/up-chevron" title="up chevron icons">Up chevron icons created by Pixel perfect - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/chest" title="chest icons">Chest icons created by Freepik - Flaticon</a>
-<br>
-<a href="https://www.flaticon.com/free-icons/award" title="award icons">Award icons created by Freepik - Flaticon</a>
 <br>
 <a href="https://www.flaticon.com/free-icons/bomb" title="bomb icons">Bomb icons created by vectorsmarket15 - Flaticon</a>
 <br>
@@ -146,18 +187,18 @@ flowchart TB
 <br>
 <a href="https://www.flaticon.com/free-icons/grenade" title="grenade icons">Grenade icons created by Umeicon - Flaticon</a>
 <br>
-<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Maxim Basinski Premium - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by Freepik - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/location-marker" title="location marker icons">Location marker icons created by Earthz Stocker - Flaticon</a>.
-<a href="https://www.flaticon.com/free-icons/dual-trigger-insurance" title="dual trigger insurance icons">Dual trigger insurance icons created by vectorsmarket15 - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Smashicons - Flaticon</a>
-<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Freepik - Flaticon</a>
-
-Sound Effect from <a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=39222">Pixabay</a>
+<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Freepik - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/arrows" title="arrows icons">Arrows icons created by Maxim Basinski Premium - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/play-button" title="play button icons">Play button icons created by Freepik - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/dice" title="dice icons">Dice icons created by Nsit - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/location-marker" title="location marker icons">Location marker icons created by Earthz Stocker - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/dual-trigger-insurance" title="dual trigger insurance icons">Dual trigger insurance icons created by vectorsmarket15 - Flaticon</a><br>
+<a href="https://www.flaticon.com/free-icons/hot-air-balloon" title="hot air balloon icons">Hot air balloon icons created by Smashicons - Flaticon</a><br>
+<a href="https://pixabay.com/sound-effects/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=39222">Sound by Pixabay</a><br>
+<a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by Laura Reen - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/question" title="question icons">Question icons created by iconset.co - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/refresh" title="refresh icons">Refresh icons created by Freepik - Flaticon</a>
 
 ### Other References
 
-- https://github.com/jahid28/Games/blob/main/SnakesAndLadder/game.js
+https://github.com/jahid28/Games/blob/main/SnakesAndLadder/game.js
