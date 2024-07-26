@@ -510,6 +510,7 @@ resetButton.addEventListener("click", () => {
 
 rulesButton.addEventListener("click", () => {
   rulesGameContainer.style.display = "block";
+  console.log("RULES");
 });
 
 closeRules.addEventListener("click", () => {

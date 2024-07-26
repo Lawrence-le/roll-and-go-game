@@ -86,10 +86,10 @@ body {
   font-style: normal;
   display: block;
   position: absolute;
-  top: -26rem;
+  top: 5rem;
   padding-left: 1rem;
   padding-bottom: 1rem;
-  width: 95%;
+  width: 640px;
   background-color: #212f3d;
   color: #ebedef;
   z-index: 1000;
