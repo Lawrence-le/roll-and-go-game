@@ -1,5 +1,5 @@
 # Game Title: Roll & Go!
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/b2f8e2e8-6fd3-4373-9734-a900909b035f)
 
 ## Project Objective
 
